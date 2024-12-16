@@ -1,0 +1,320 @@
+{
+    "id": "openai-community/gpt2",
+    "author": "openai-community",
+    "sha": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "created_at": "2022-03-02T23:29:04Z",
+    "last_modified": "2024-02-19T10:57:45Z",
+    "private": false,
+    "disabled": false,
+    "downloads": 13382301,
+    "downloads_all_time": null,
+    "gated": false,
+    "gguf": null,
+    "inference": null,
+    "likes": 2433,
+    "library_name": "transformers",
+    "tags": [
+        "transformers",
+        "pytorch",
+        "tf",
+        "jax",
+        "tflite",
+        "rust",
+        "onnx",
+        "safetensors",
+        "gpt2",
+        "text-generation",
+        "exbert",
+        "en",
+        "doi:10.57967/hf/0039",
+        "license:mit",
+        "autotrain_compatible",
+        "text-generation-inference",
+        "endpoints_compatible",
+        "region:us"
+    ],
+    "pipeline_tag": "text-generation",
+    "mask_token": null,
+    "card_data": {
+        "base_model": null,
+        "datasets": null,
+        "eval_results": null,
+        "language": "en",
+        "library_name": null,
+        "license": "mit",
+        "license_name": null,
+        "license_link": null,
+        "metrics": null,
+        "model_name": null,
+        "pipeline_tag": null,
+        "tags": [
+            "exbert"
+        ]
+    },
+    "widget_data": [
+        {
+            "text": "My name is Julien and I like to"
+        },
+        {
+            "text": "I like traveling by train because"
+        },
+        {
+            "text": "Paris is an amazing place to visit,"
+        },
+        {
+            "text": "Once upon a time,"
+        }
+    ],
+    "model_index": null,
+    "config": {
+        "architectures": [
+            "GPT2LMHeadModel"
+        ],
+        "model_type": "gpt2",
+        "tokenizer_config": {}
+    },
+    "transformers_info": {
+        "auto_model": "AutoModelForCausalLM",
+        "custom_class": null,
+        "pipeline_tag": "text-generation",
+        "processor": "AutoTokenizer"
+    },
+    "trending_score": null,
+    "siblings": [
+        {
+            "rfilename": ".gitattributes",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "64-8bits.tflite",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "64-fp16.tflite",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "64.tflite",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "README.md",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "config.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "flax_model.msgpack",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "generation_config.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "merges.txt",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "model.safetensors",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/config.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/decoder_model.onnx",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/decoder_model_merged.onnx",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/decoder_with_past_model.onnx",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/generation_config.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/merges.txt",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/special_tokens_map.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/tokenizer.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/tokenizer_config.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "onnx/vocab.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "pytorch_model.bin",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "rust_model.ot",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "tf_model.h5",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "tokenizer.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "tokenizer_config.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        },
+        {
+            "rfilename": "vocab.json",
+            "size": null,
+            "blob_id": null,
+            "lfs": null
+        }
+    ],
+    "spaces": [
+        "microsoft/HuggingGPT",
+        "Gustavosta/MagicPrompt-Stable-Diffusion",
+        "akhaliq/anychat",
+        "shi-labs/Versatile-Diffusion",
+        "optimum/llm-perf-leaderboard",
+        "yizhangliu/Grounded-Segment-Anything",
+        "microsoft/Promptist",
+        "h2oai/h2ogpt-chatbot",
+        "aliabid94/AutoGPT",
+        "Manmay/tortoise-tts",
+        "Yntec/ToyWorld",
+        "jadechoghari/OpenMusic",
+        "h2oai/h2ogpt-chatbot2",
+        "wangrongsheng/ChatPaper",
+        "OFA-Sys/OFA-Image_Caption",
+        "Intel/low_bit_open_llm_leaderboard",
+        "eduagarcia/open_pt_llm_leaderboard",
+        "exbert-project/exbert",
+        "m-ric/beam_search_visualizer",
+        "OpenMotionLab/MotionGPT",
+        "fffiloni/EchoMimic",
+        "doevent/Stable-Diffusion-prompt-generator",
+        "ShiwenNi/ChatReviewer",
+        "open-llm-leaderboard/blog",
+        "BAAI/open_cn_llm_leaderboard",
+        "llamameta/flux-pro-uncensored",
+        "Nymbo/Compare-6",
+        "flax-community/image-captioning",
+        "treadon/prompt-fungineer-355M",
+        "BadToBest/EchoMimic",
+        "nateraw/lavila",
+        "yizhangliu/Text-to-Image",
+        "TMElyralab/MuseTalk",
+        "gsaivinay/open_llm_leaderboard",
+        "FrankZxShen/so-vits-svc-models-ba",
+        "maxmax20160403/sovits5.0",
+        "deepklarity/poster2plot",
+        "EleutherAI/magma",
+        "akhaliq/CLIP_prefix_captioning",
+        "OFA-Sys/OFA-Visual_Grounding",
+        "phenomenon1981/MagicPrompt-Stable-Diffusion",
+        "Yntec/ToyWorldXL",
+        "llamameta/fluxproV2SmallCapDemo",
+        "llizhx/TinyGPT-V",
+        "lfoppiano/document-qa",
+        "BoomerangGirl/MagicPrompt-Stable-Diffusion",
+        "sasha/BiasDetection",
+        "Kaludi/Stable-Diffusion-Prompt-Generator_App",
+        "gsarti/pecore",
+        "GTBench/GTBench",
+        "John6666/Diffusion80XX4sg",
+        "architext/Architext_deployed",
+        "kmacdermid/RpgRoomGenerator",
+        "SeViLA/SeViLA",
+        "AnimaLab/bias-test-gpt-pairs",
+        "optimum/auto-benchmark",
+        "GeorgiosIoannouCoder/cuny-tech-prep-tutorial-6",
+        "oceansweep/tldw",
+        "sonalkum/GAMA",
+        "Vikhrmodels/small-shlepa-lb",
+        "stanfordnlp/Backpack-Demo",
+        "shangdatalab-ucsd/LDB",
+        "prometheus-eval/BiGGen-Bench-Leaderboard",
+        "flosstradamus/FluxMusicGUI",
+        "llamameta/fast-sd3.5-large",
+        "sasha/WinoBiasCheck",
+        "ccolas/TastyPiano",
+        "hahahafofo/prompt_generator",
+        "dromerosm/gpt-info-extraction",
+        "zeno-ml/chatbot-report"
+    ],
+    "safetensors": {
+        "parameters": {
+            "F32": 137022720
+        },
+        "total": 137022720
+    },
+    "security_repo_status": null
+}
