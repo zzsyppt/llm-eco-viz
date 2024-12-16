@@ -14,7 +14,7 @@
 - `test_files/`: 开发时用到的临时测试文件。
 - `README.md`: 项目概览与向导。
 
-### Team Roles
+### Team Roles👥
 
 本项目的人员分工：
 TODO。
@@ -23,14 +23,14 @@ TODO。
 
 TODO。
 
-### Dependencies
+### Dependencies📦
 
 TODO
 
-### Contributing
+### Contributing💡
 
 TODO。
 
-### License
+### License📝
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
