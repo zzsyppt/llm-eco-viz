@@ -1,5 +1,5 @@
 '''
-考虑的问题
+需要考虑的问题
 1.防止网站阻塞：在爬取数据时，可能会遇到网站的反爬虫机制，导致请求失败。为了避免这种情况，可以设置重试机制，当请求失败时，进行重试；以及设置随机等待时间，降低访问频率，减少被封禁的风险。
 2.分页：有些网站的数据可能会分页展示，需要翻页才能获取完整的数据。在爬取数据时，需要考虑如何处理分页的情况。
 '''
@@ -11,7 +11,7 @@ import time
 import random
 
 # 输入 BASE MODEL 文件路径
-BASE_MODEL_FILE = "basemodels_top1000_likes.txt"
+BASE_MODEL_FILE = "../find_basemodel/output/basemodels_top1000_likes.txt"
 
 # 输出文件路径
 OUTPUT_FOLDER = "output"
