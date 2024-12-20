@@ -6,6 +6,7 @@ import time
 # 输入和输出文件路径
 INPUT_FILE = "../fetching_model_tree/output/model_tree_raw.json"  # 输入的 JSON 文件
 OUTPUT_FILE = "output/model_metadata.json"  # 输出的 JSON 文件
+ERROR_FILE = "output/error_getting_model_info.txt"  # 错误记录文件
 
 # 确保输出目录存在
 OUTPUT_FOLDER = os.path.dirname(OUTPUT_FILE)  # 提取目录部分
@@ -16,8 +17,17 @@ api = HfApi()
 
 # 实时写入文件的函数
 def write_to_json(data, file_path):
-    with open(file_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    try:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Error writing to {file_path}: {e}")
+        log_error(data, ERROR_FILE)  # 写入错误文件
+
+# 写入错误文件的函数
+def log_error(model_id, file_path):
+    with open(file_path, "a", encoding="utf-8") as f:
+        f.write(f"{model_id}\n")
 
 # 获取模型元数据的函数
 def fetch_model_metadata(model_id):
@@ -44,6 +54,7 @@ def fetch_model_metadata(model_id):
         }
     except Exception as e:  # 使用通用异常捕获
         print(f"Error fetching metadata for {model_id}: {e}")
+        log_error(model_id, ERROR_FILE)  # 将错误模型记录到文件
         return None
 
 # 主程序
@@ -84,3 +95,4 @@ if __name__ == "__main__":
                 # time.sleep(0.5)  # 短暂等待，防止触发请求限制
 
     print(f"Metadata collection complete! Data saved to '{OUTPUT_FILE}'.")
+    print(f"Errors logged to '{ERROR_FILE}'.")
