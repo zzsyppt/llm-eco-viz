@@ -1,0 +1,13 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Application - Other
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 636172550
+          name: WangRongsheng/MedQA-ChatGLM
+        - id: 667200726
+          name: DUOMO/TransGPT
+        - id: 679606269
+          name: zhihaiLLM/wisdomInterrogatory

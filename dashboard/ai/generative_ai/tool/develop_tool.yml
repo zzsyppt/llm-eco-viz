@@ -1,0 +1,43 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Tool - Develop Tool
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 670778224
+          name: Mintplex-Labs/vector-admin
+        - id: 626306555
+          name: unit-mesh/devti
+        - id: 627920448
+          name: unit-mesh/auto-dev
+        - id: 441778458
+          name: EleutherAI/pythia
+        - id: 639161229
+          name: poe-platform/server-bot-quick-start
+        - id: 616372661
+          name: binary-husky/gpt_academic
+        - id: 621258412
+          name: TencentARC-QQ/TagGPT
+        - id: 567185522
+          name: microsoft/torchscale
+        - id: 616992960
+          name: gd3kr/BlenderGPT
+        - id: 299282745
+          name: AIGMix/AIGCJson
+        - id: 422274596
+          name: hpcaitech/ColossalAI
+        - id: 616083282
+          name: OpenGVLab/LLaMA-Adapter
+        - id: 650549146
+          name: melih-unsal/DemoGPT
+        - id: 676608269
+          name: mshumer/gpt-llm-trainer
+        - id: 492713876
+          name: FlagAI-Open/FlagAI
+        - id: 525592995
+          name: invoke-ai/InvokeAI
+        - id: 631258918
+          name: gventuri/pandas-ai
+        - id: 539362736
+          name: siliconflow/onediff

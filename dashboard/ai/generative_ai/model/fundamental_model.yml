@@ -1,0 +1,23 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Model - Fundamental Model
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 155220641
+          name: huggingface/transformers
+        - id: 633841936
+          name: dandelionsllm/pandallm
+        - id: 632503648
+          name: OpenBMB/CPM-Bee
+        - id: 170067246
+          name: openai/gpt-2
+        - id: 264870386
+          name: openai/gpt-3
+        - id: 601538369
+          name: facebookresearch/llama
+        - id: 552661142
+          name: langchain-ai/langchain
+        - id: 685444668
+          name: baichuan-inc/Baichuan2

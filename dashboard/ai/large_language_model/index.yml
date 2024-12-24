@@ -1,0 +1,55 @@
+name: Artificial Intelligence - Large Language Model
+type: Tech-1
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 612427246
+          name: atatsu-lab/stanford_alpaca
+        - id: 614803132
+          name: antimatter15/alpaca.cpp
+        - id: 574116196
+          name: tloen/alpaca-lora
+        - id: 155220641
+          name: huggingface/transformers
+        - id: 573819845
+          name: acheong08/chatgpt
+        - id: 154747577
+          name: google-research/bert
+        - id: 170067246
+          name: openai/gpt-2
+        - id: 264870386
+          name: openai/gpt-3
+        - id: 176982014
+          name: NVIDIA/Megatron-LM
+        - id: 423593369
+          name: google-research/t5x
+        - id: 158606045
+          name: remoteinterview/zero
+        - id: 398647982
+          name: google-research/FLAN
+        - id: 437985376
+          name: bigscience-workshop/t-zero
+        - id: 630292680
+          name: 0hq/WebGPT
+        - id: 120541397
+          name: openai/retro
+        - id: 451691015
+          name: openai/following-instructions-human-feedback
+        - id: 488004650
+          name: facebookresearch/metaseq
+        - id: 330044683
+          name: google/BIG-bench
+        - id: 521021013
+          name: THUDM/GLM-130B
+        - id: 432968463
+          name: stanford-crfm/helm
+        - id: 601538369
+          name: facebookresearch/llama
+        - id: 198350484
+          name: microsoft/unilm
+        - id: 441778458
+          name: EleutherAI/pythia
+        - id: 539362736
+          name: siliconflow/onediff

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开源数据发展趋势仪表盘</title>
+    <link href="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom, #0d1b2a, #1a2432);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .header {
+            grid-column: span 3;
+            text-align: center;
+            padding: 30px;
+            font-size: 2.5rem;
+            color: #80d8ff;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+        }
+
+        .module {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .module h2 {
+            font-size: 1.5rem;
+            color: #80d8ff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .core-data {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.8rem;
+            color: #fdd835;
+            margin-bottom: 20px;
+        }
+
+        .core-data-label {
+            font-size: 1rem;
+            color: #80d8ff;
+            text-align: center;
+        }
+
+        .footer {
+            grid-column: span 3;
+            text-align: center;
+            padding: 15px;
+            font-size: 1rem;
+            color: #80d8ff;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+        }
+
+        .footer a {
+            color: #80d8ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        #current-time {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    开源数据发展趋势仪表盘
+    <div id="current-time"></div>
+</div>
+
+<div class="dashboard">
+    <!-- Left Modules -->
+    <div class="module">
+        <h2>PR处理效率</h2>
+        <div class="chart-container" id="pr-chart"></div>
+    </div>
+    <div class="module">
+        <h2>OpenRank</h2>
+        <div class="chart-container" id="openrank-chart"></div>
+    </div>
+
+    <!-- Center Modules -->
+    <div class="module">
+        <div class="core-data">
+            <div>
+                306.04
+                <div class="core-data-label">OpenRank平均值</div>
+            </div>
+            <div>
+                44.97
+                <div class="core-data-label">GitHub平均值</div>
+            </div>
+        </div>
+        <div class="chart-container" id="radar-chart"></div>
+    </div>
+
+    <!-- Right Modules -->
+    <div class="module">
+        <h2>关注度</h2>
+        <div class="chart-container" id="focus-chart"></div>
+    </div>
+    <div class="module">
+        <h2>开发者活跃度</h2>
+        <div class="chart-container" id="activity-chart"></div>
+    </div>
+    <div class="module">
+        <h2>项目活跃度</h2>
+        <div class="chart-container" id="project-chart"></div>
+    </div>
+</div>
+
+<div class="footer">
+    数据由 <a href="https://github.com" target="_blank">GitHub</a> 统计提供 | 更新于实时
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<script>
+    // Utility to update current time
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('current-time').innerText = now.toLocaleString();
+    }
+    setInterval(updateTime, 1000);
+
+    // Initialize charts
+    const prChart = echarts.init(document.getElementById('pr-chart'));
+    const openrankChart = echarts.init(document.getElementById('openrank-chart'));
+    const radarChart = echarts.init(document.getElementById('radar-chart'));
+    const focusChart = echarts.init(document.getElementById('focus-chart'));
+    const activityChart = echarts.init(document.getElementById('activity-chart'));
+    const projectChart = echarts.init(document.getElementById('project-chart'));
+
+    // PR Chart Configuration
+    prChart.setOption({
+        title: { text: '' },
+        xAxis: { type: 'category', data: ['Jan', 'Feb', 'Mar'] },
+        yAxis: { type: 'value' },
+        series: [{ type: 'bar', data: [120, 200, 150] }]
+    });
+
+    // OpenRank Chart Configuration
+    openrankChart.setOption({
+        xAxis: { type: 'category', data: ['2021', '2022', '2023'] },
+        yAxis: { type: 'value' },
+        series: [{ type: 'line', data: [300, 400, 500] }]
+    });
+
+    // Radar Chart Configuration
+    radarChart.setOption({
+        radar: {
+            indicator: [
+                { name: '影响力', max: 100 },
+                { name: '趋势', max: 100 },
+                { name: '活动度', max: 100 },
+                { name: '响应度', max: 100 },
+                { name: '综合评分', max: 100 }
+            ]
+        },
+        series: [{
+            type: 'radar',
+            data: [{ value: [80, 70, 60, 90, 85], name: '项目A' }]
+        }]
+    });
+
+    // Focus Chart Configuration
+    focusChart.setOption({
+        xAxis: { type: 'category', data: ['2021', '2022', '2023'] },
+        yAxis: { type: 'value' },
+        series: [{ type: 'line', data: [400, 500, 600] }]
+    });
+
+    // Activity Chart Configuration
+    activityChart.setOption({
+        xAxis: { type: 'category', data: ['2021', '2022', '2023'] },
+        yAxis: { type: 'value' },
+        series: [{ type: 'line', data: [50, 60, 70] }]
+    });
+
+    // Project Chart Configuration
+    projectChart.setOption({
+        xAxis: { type: 'category', data: ['2021', '2022', '2023'] },
+        yAxis: { type: 'value' },
+        series: [{ type: 'line', data: [800, 900, 1000] }]
+    });
+</script>
+</body>
+</html>

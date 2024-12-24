@@ -1,0 +1,80 @@
+name: Artificial Intelligence - Generative Artificial Intelligence
+type: Tech-1
+data:
+  labels:
+    - application
+    - infrastructure
+    - model
+    - tool
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 573819845
+          name: acheong08/chatgpt
+        - id: 582822129
+          name: karpathy/nanogpt
+        - id: 595893961
+          name: lllyasviel/controlnet
+        - id: 574965758
+          name: fuergaosi233/wechat-chatgpt
+        - id: 573631261
+          name: transitive-bullshit/chatgpt-api
+        - id: 576380523
+          name: lucidrains/palm-rlhf-pytorch
+        - id: 602270517
+          name: fminference/flexgen
+        - id: 535509546
+          name: brycedrennan/imaginairy
+        - id: 288108533
+          name: karpathy/mingpt
+        - id: 560704231
+          name: jerryjliu/gpt_index
+        - id: 575048321
+          name: openai/point-e
+        - id: 525592995
+          name: invoke-ai/invokeai
+        - id: 55072677
+          name: weaviate/weaviate
+        - id: 574428530
+          name: rawandahmad698/pychatgpt
+        - id: 572971616
+          name: vincelwt/chatgpt-mac
+        - id: 502482803
+          name: bigscience-workshop/petals
+        - id: 219986676
+          name: ashishpatel26/Tools-to-Design-or-Visualize-Architecture-of-Neural-Network
+        - id: 58414589
+          name: oneapi-src/onednn
+        - id: 224296809
+          name: google-research/albert
+        - id: 341067188
+          name: alpa-projects/alpa
+        - id: 545104023
+          name: CarperAI/trlx
+        - id: 590604203
+          name: TheR1D/shell_gpt
+        - id: 517552648
+          name: modelscope/modelscope
+        - id: 588477692
+          name: BlinkDL/ChatRWKV
+        - id: 268163609
+          name: qdrant/qdrant
+        - id: 208728772
+          name: milvus-io/milvus
+        - id: 502482803
+          name: bigscience-workshop/petals
+        - id: 591782276
+          name: jaymody/picoGPT
+        - id: 521021013
+          name: THUDM/GLM-130B
+        - id: 244607156
+          name: VinAIResearch/PhoBERT
+        - id: 355059998
+          name: rinnakk/japanese-pretrained-models
+        - id: 168799526
+          name: huggingface/pytorch-image-models
+        - id: 622737738
+          name: yoheinakajima/babyagi
+        - id: 613591358
+          name: tloen/alpaca-lora

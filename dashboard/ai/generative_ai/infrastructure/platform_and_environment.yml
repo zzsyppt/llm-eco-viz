@@ -1,0 +1,15 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Infrastructure - Platform & Environment
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 617788189
+          name: unit-mesh/unit-mesh
+        - id: 618345160
+          name: PhoebusSi/Alpaca-CoT
+        - id: 616997669
+          name: 1595901624/gpt-aggregated-edition
+        - id: 612781022
+          name: getcursor/cursor

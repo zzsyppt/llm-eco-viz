@@ -1,0 +1,37 @@
+name: Big Data - Data Storage
+type: Tech-1
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 327859577
+          name: juicedata/juicefs
+        - id: 76474200
+          name: apache/hudi
+        - id: 158256479
+          name: apache/iceberg
+        - id: 7276954
+          name: Alluxio/alluxio
+        - id: 206459
+          name: apache/avro
+        - id: 182849188
+          name: delta-io/delta
+        - id: 3786237
+          name: hazelcast/hazelcast
+        - id: 20675636
+          name: apache/parquet-mr
+        - id: 1575956
+          name: apache/bookkeeper
+        - id: 50647838
+          name: apache/kudu
+        - id: 41712332
+          name: apache/incubator-pegasus
+        - id: 62117818
+          name: apache/carbondata
+        - id: 20675635
+          name: apache/parquet-format
+        - id: 212382406
+          name: apache/ozone
+        - id: 25507371
+          name: apache/hadoop-hdfs

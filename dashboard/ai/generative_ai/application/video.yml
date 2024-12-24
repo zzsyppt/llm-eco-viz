@@ -1,0 +1,11 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Application - Video
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 342728683
+          name: replicate/cog
+        - id: 533451541
+          name: nateraw/stable-diffusion-videos
