@@ -1,0 +1,51 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Application - Audio
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 619143361
+          name: elevenlabs/elevenlabs-python
+        - id: 338338954
+          name: resemble-ai/resemble-alexa
+        - id: 576069143
+          name: ZohaibAhmed/ChatGPT-Voice
+        - id: 552264768
+          name: babysplly/Wellsaidlabs
+        - id: 265612440
+          name: coqui-ai/TTS
+        - id: 584022883
+          name: yacineMTB/scribepod
+        - id: 672176742
+          name: Plachtaa/VALL-E-X
+        - id: 452939314
+          name: neonbjb/tortoise-tts
+        - id: 624994625
+          name: suno-ai/bark
+        - id: 59299524
+          name: MycroftAI/mycroft-core
+        - id: 90392762
+          name: common-voice/common-voice
+        - id: 404457914
+          name: uberduck-ai/uberduck-ml-dev
+        - id: 92691776
+          name: jovotech/jovo-framework
+        - id: 577603990
+          name: LAION-AI/Open-Assistant
+        - id: 629313011
+          name: pashpashpash/vault-ai
+        - id: 496363093
+          name: Harmonai-org/sample-generator
+        - id: 553119108
+          name: MubertAI/Mubert-Text-to-Music
+        - id: 594096901
+          name: lucidrains/musiclm-pytorch
+        - id: 6724235
+          name: Cortexelus/dadabots
+        - id: 251074388
+          name: AbhilashPal/MuseNet
+        - id: 650945129
+          name: facebookresearch/audiocraft
+        - id: 614719201
+          name: AIGC-Audio/AudioGPT

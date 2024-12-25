@@ -1,0 +1,23 @@
+name: Artificial Intelligence - Generative Artificial InteLligence - Tool - Prompt Engineering
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 658453192
+          name: hegelai/prompttools
+        - id: 608934156
+          name: prompt-engineering/click-prompt
+        - id: 618903393
+          name: Moonvy/OpenPromptStudio
+        - id: 579082810
+          name: dair-ai/Prompt-Engineering-Guide
+        - id: 574523116
+          name: f/awesome-chatgpt-prompts
+        - id: 631484230
+          name: LearnPrompt/LearnPrompt
+        - id: 630249429
+          name: lamini-ai/lamini
+        - id: 586758655
+          name: travistangvh/ChatGPT-Data-Science-Prompts

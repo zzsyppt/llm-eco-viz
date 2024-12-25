@@ -1,0 +1,44 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Tool
+type: Tech-2
+data:
+  labels:
+    - deployment_tool
+    - develop_tool
+    - production_monitor
+    - prompt_engineering
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 614765452
+          name: significant-gravitas/auto-gpt
+        - id: 527591471
+          name: automatic1111/stable-diffusion-webui
+        - id: 552661142
+          name: hwchase17/langchain
+        - id: 635240594
+          name: imartinez/privategpt
+        - id: 624681066
+          name: reworkd/agentgpt
+        - id: 621118467
+          name: microsoft/jarvis
+        - id: 617798408
+          name: openai/chatgpt-retrieval-plugin
+        - id: 560704231
+          name: jerryjliu/llama_index
+        - id: 235860204
+          name: microsoft/DeepSpeed
+        - id: 580642043
+          name: oobabooga/text-generation-webui
+        - id: 422274596
+          name: hpcaitech/colossalai
+        - id: 613075789
+          name: cocktailpeanut/dalai
+        - id: 564443255
+          name: microsoft/guidance
+        - id: 621803253
+          name: flowiseai/flowise
+        - id: 640182997
+          name: transformeroptimus/superagi
+        - id: 644715009
+          name: promtengineer/localgpt

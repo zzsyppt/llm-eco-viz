@@ -1,0 +1,38 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Application
+type: Tech-2
+data:
+  labels:
+    - audio
+    - code
+    - image
+    - other
+    - text
+    - video
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 575340621
+          name: lencx/chatgpt
+        - id: 615882673
+          name: lm-sys/fastchat
+        - id: 612781022
+          name: getcursor/cursor
+        - id: 537603333
+          name: openai/whisper
+        - id: 612640604
+          name: mckaywrigley/chatbot-ui
+        - id: 610260322
+          name: bin-huang/chatbox
+        - id: 615113749
+          name: mayooear/gpt4-pdf-chatbot-langchain
+        - id: 621808642
+          name: jushbjj/mr.-ranedeer-ai-tutor
+        - id: 621799276
+          name: chatchat-space/Langchain-Chatchat
+        - id: 640079149
+          name: StanGirard/quivr
+        - id: 624249899
+          name: idea-research/grounded-segment-anything
+        - id: 614719201
+          name: aigc-audio/audiogpt

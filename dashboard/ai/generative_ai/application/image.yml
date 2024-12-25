@@ -1,0 +1,27 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Application - Image
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 547653294
+          name: midjourney/transformers
+        - id: 569927055
+          name: Stability-AI/stablediffusion
+        - id: 631081758
+          name: Stability-AI/StableStudio
+        - id: 656933936
+          name: Stability-AI/generative-models
+        - id: 625876964
+          name: open-mmlab/playground
+        - id: 612427246
+          name: tatsu-lab/stanford_alpaca
+        - id: 642323624
+          name: XingangPan/DragGAN
+        - id: 628419800
+          name: Vision-CAIR/MiniGPT-4
+        - id: 595893961
+          name: lllyasviel/ControlNet
+        - id: 523379232
+          name: CompVis/stable-diffusion

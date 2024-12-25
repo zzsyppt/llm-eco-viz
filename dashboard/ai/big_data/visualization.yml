@@ -1,0 +1,55 @@
+name: Big Data - Visualization
+type: Tech-1
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 943149
+          name: d3/d3
+        - id: 9185792
+          name: apache/echarts
+        - id: 15111821
+          name: grafana/grafana
+        - id: 39464018
+          name: apache/superset
+        - id: 30203935
+          name: metabase/metabase
+        - id: 13926404
+          name: getredash/redash
+        - id: 1385122
+          name: matplotlib/matplotlib
+        - id: 85095608
+          name: airbnb/visx
+        - id: 45646037
+          name: plotly/plotly.js
+        - id: 59737212
+          name: antvis/G2
+        - id: 4704710
+          name: mwaskom/seaborn
+        - id: 11496279
+          name: c3js/c3
+        - id: 123345344
+          name: keplergl/kepler.gl
+        - id: 335164964
+          name: dataease/dataease
+        - id: 110222380
+          name: alibaba/BizCharts
+        - id: 39979936
+          name: nhn/tui.chart
+        - id: 156293506
+          name: microsoft/SandDance
+        - id: 102447494
+          name: edp963/davinci
+        - id: 96424863
+          name: TalkingData/inmap
+        - id: 159273440
+          name: shzlw/poli
+        - id: 8357227
+          name: biolab/orange3
+        - id: 37276906
+          name: keen/explorer
+        - id: 54937496
+          name: PatMartin/Dex
+        - id: 7833168
+          name: elastic/kibana

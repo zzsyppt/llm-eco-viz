@@ -1,0 +1,105 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Model - Variant Model
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 173626887
+          name: nshepperd/gpt-2
+        - id: 644071541
+          name: princeton-nlp/MeZO
+        - id: 596424141
+          name: amazon-science/mm-cot
+        - id: 647525305
+          name: QingruZhang/AdaLoRA
+        - id: 602270517
+          name: FMInference/FlexGen
+        - id: 580089997
+          name: itsnamgyu/reasoning-teacher
+        - id: 652712035
+          name: lyogavin/Anima
+        - id: 653595084
+          name: baichuan-inc/baichuan-7B
+        - id: 643449711
+          name: huchenxucs/ChatDB
+        - id: 608892940
+          name: togethercomputer/OpenChatKit
+        - id: 636234426
+          name: thunlp/WebCPM
+        - id: 601538369
+          name: facebookresearch/llama
+        - id: 669686044
+          name: karpathy/llama2.c
+        - id: 612427246
+          name: tatsu-lab/stanford_alpaca
+        - id: 638949180
+          name: Neutralzz/BiLLa
+        - id: 621826122
+          name: SCIR-HI/Huatuo-Llama-Med-Chinese
+        - id: 645685068
+          name: yanqiangmiffy/GoGPT
+        - id: 537603333
+          name: openai/whisper
+        - id: 645397533
+          name: imoneoi/openchat
+        - id: 634224458
+          name: AntonOsika/gpt-engineer
+        - id: 630023030
+          name: Stability-AI/StableLM
+        - id: 621118467
+          name: microsoft/JARVIS
+        - id: 628419800
+          name: Vision-CAIR/MiniGPT-4
+        - id: 288108533
+          name: karpathy/minGPT
+        - id: 582822129
+          name: karpathy/nanoGPT
+        - id: 627744002
+          name: muellerberndt/mini-agi
+        - id: 618511002
+          name: databrickslabs/dolly
+        - id: 624236959
+          name: Instruction-Tuning-with-GPT-4/GPT-4-LLM
+        - id: 612427246
+          name: tatsu-lab/stanford_alpaca
+        - id: 632244130
+          name: X-PLUG/mPLUG-Owl
+        - id: 575603626
+          name: microsoft/i-Code
+        - id: 663101722
+          name: CStanKonrad/long_llama
+        - id: 667583509
+          name: microsoft/Llama-2-Onnx
+        - id: 653595084
+          name: baichuan-inc/Baichuan-7B
+        - id: 664752008
+          name: baichuan-inc/Baichuan-13B
+        - id: 613349035
+          name: THUDM/ChatGLM-6B
+        - id: 657895120
+          name: THUDM/ChatGLM2-6B
+        - id: 628296906
+          name: OpenLMLab/MOSS
+        - id: 654612931
+          name: ictnlp/BayLing
+        - id: 649782269
+          name: RUC-GSAI/YuLan-Chat
+        - id: 674075444
+          name: QwenLM/Qwen
+        - id: 672449777
+          name: HIT-SCIR/huozi
+        - id: 673701787
+          name: XiaoMi/MiLM-6B
+        - id: 614325365
+          name: ymcui/Chinese-LLaMA-Alpaca
+        - id: 668052031
+          name: ymcui/Chinese-LLaMA-Alpaca-2
+        - id: 668122773
+          name: FlagAlpha/Llama2-Chinese
+        - id: 634401249
+          name: WeOpenML/PandaLM
+        - id: 189511050
+          name: Morizeyao/GPT2-Chinese
+        - id: 632781258
+          name: mosaicml/diffusion

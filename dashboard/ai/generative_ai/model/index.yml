@@ -1,0 +1,43 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Model
+type: Tech-2
+data:
+  labels:
+    - framework_and_architecture
+    - fundamental_model
+    - variant_model
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 619959033
+          name: nomic-ai/gpt4all
+        - id: 618058471
+          name: facebookresearch/segment-anything
+        - id: 155220641
+          name: huggingface/transformers
+        - id: 523379232
+          name: compvis/stable-diffusion
+        - id: 541269386
+          name: ggerganov/whisper.cpp
+        - id: 601538369
+          name: facebookresearch/llama
+        - id: 612354784
+          name: ggerganov/llama.cpp
+        - id: 612427246
+          name: tatsu-lab/stanford_alpaca
+        - id: 624994625
+          name: suno-ai/bark
+        - id: 628419800
+          name: vision-cair/minigpt-4
+        - id: 574116196
+          name: tloen/alpaca-lora
+        - id: 630023030
+          name: stability-ai/stablelm
+        - id: 620936652
+          name: xtekky/gpt4free
+        - id: 628296906
+          name: openlmlab/moss
+        - id: 569927055
+          name: Stability-AI/stablediffusion
+        - id: 650945129
+          name: facebookresearch/audiocraft

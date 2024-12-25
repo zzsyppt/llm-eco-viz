@@ -1,0 +1,29 @@
+name: Artificial Intelligence - Generative Artificial Intelligence - Infrastructure - Data
+type: Tech-3
+data:
+  platforms:
+    - name: GitHub
+      type: Code Hosting
+      repos:
+        - id: 250213286
+          name: huggingface/datasets
+        - id: 290621741
+          name: EleutherAI/The-Pile
+        - id: 184690694
+          name: openai/gpt-2-output-dataset
+        - id: 685189532
+          name: openai/compose-richtext
+        - id: 171325281
+          name: jcpeterson/openwebtext
+        - id: 264870386
+          name: openai/gpt-3
+        - id: 627636169
+          name: allenai/mmc4
+        - id: 622196323
+          name: FreedomIntelligence/LLMZoo
+        - id: 650086239
+          name: X-PLUG/Youku-mPLUG
+        - id: 678206546
+          name: opendatalab/WanJuan1.0
+        - id: 656099147
+          name: embedchain/embedchain
