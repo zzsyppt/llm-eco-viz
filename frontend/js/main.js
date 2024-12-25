@@ -59,7 +59,7 @@ function initParticles() {
 // 数据加载函数
 async function loadProjectData(projectPath, dataType) {
     try {
-        const response = await fetch(`/data/${projectPath}/${dataType}.json`);
+        const response = await fetch(`http://localhost:8080/frontend/data/${projectPath}/${dataType}.json`);
         if (!response.ok) throw new Error('Network response was not ok');
         return await response.json();
     } catch (error) {
@@ -70,40 +70,114 @@ async function loadProjectData(projectPath, dataType) {
 
 // 获取所有项目数据
 async function getAllProjectsData() {
-    // 这里需要实现获取项目列表的逻辑
-    const projects = ['AIGC-Audio/AudioGPT']; // 示例项目
-    const dataTypes = [
-        'openrank', 'activity', 'stars', 'technical_fork', 'attention',
-        'bus_factor', 'new_contributors'
+    // 实际的项目列表
+    const projects = [
+        'martiansideofthemoon/ai-detection-paraphrases',
+        'mayooear/gpt4-pdf-chatbot-langchain'
     ];
+    
+    // 从data_type.yml中获取的数据类型
+    const dataTypes = {
+        type: [
+            'openrank', 'activity', 'stars', 'technical_fork', 'attention',
+            'bus_factor', 'new_contributors'
+        ],
+        issue: [
+            'issues_closed', 'issue_comments', 'issues_new',
+            'issue_response_time', 'issue_resolution_duration'
+        ],
+        change_requests: [
+            'change_requests_accepted', 'change_requests', 'change_requests_reviews',
+            'change_request_response_time', 'change_request_resolution_duration'
+        ],
+        code_change_lines: [
+            'code_change_lines_remove', 'code_change_lines_add'
+        ]
+    };
     
     const projectsData = {};
     
     for (const project of projects) {
         projectsData[project] = {};
-        for (const dataType of dataTypes) {
-            projectsData[project][dataType] = await loadProjectData(project, dataType);
+        // 加载所有类型的数据
+        for (const category in dataTypes) {
+            for (const dataType of dataTypes[category]) {
+                try {
+                    const response = await fetch(`http://localhost:8080/frontend/data/${project}/${dataType}.json`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        projectsData[project][dataType] = data;
+                    } else {
+                        console.error(`Failed to load ${dataType} data for ${project}: ${response.status}`);
+                    }
+                } catch (error) {
+                    console.error(`Error loading ${dataType} data for ${project}:`, error);
+                    projectsData[project][dataType] = null;
+                }
+            }
         }
     }
     
     return projectsData;
 }
 
+// 处理时间序列数据的辅助函数
+function processTimeSeriesData(projectsData, dataType) {
+    // 收集所有时间点
+    const timePoints = new Set();
+    Object.values(projectsData).forEach(project => {
+        if (project[dataType]) {
+            // 直接使用对象的键作为时间点
+            Object.keys(project[dataType]).forEach(time => timePoints.add(time));
+        }
+    });
+    
+    // 转换为数组并排序
+    const sortedTimePoints = Array.from(timePoints).sort();
+    
+    // 为每个项目准备数据
+    const seriesData = {};
+    Object.keys(projectsData).forEach(projectName => {
+        const projectData = projectsData[projectName][dataType];
+        if (projectData) {
+            seriesData[projectName] = sortedTimePoints.map(time => ({
+                time: time,
+                // 直接从数据对象中获取值
+                value: projectData[time] || 0
+            }));
+        }
+    });
+    
+    return {
+        timePoints: sortedTimePoints,
+        seriesData: seriesData
+    };
+}
+
 // 初始化函数
 async function init() {
-    // 更新时间
-    updateTime();
-    setInterval(updateTime, 1000);
-    
-    // 初始化背景
-    initParticles();
-    
-    // 加载数据
-    const projectsData = await getAllProjectsData();
-    
-    // 初始化图表
-    initCharts(projectsData);
+    try {
+        // 更新时间
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        // 初始化背景
+        initParticles();
+        
+        // 加载数据
+        const projectsData = await getAllProjectsData(); // 恢复异步加载
+        console.log('Loaded project data:', projectsData);
+        
+        // 初始化图表
+        if (projectsData) {
+            initCharts(projectsData);
+        } else {
+            console.error('Failed to load project data');
+        }
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
 }
 
 // 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', init); 
+document.addEventListener('DOMContentLoaded', init);
