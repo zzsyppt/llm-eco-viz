@@ -12788,5 +12788,425 @@
         "github": null,
         "followers": "3",
         "models": "3"
+    },
+    "ICTNLP": {
+        "type": "org",
+        "full_name": "Natural Language Processing Group, Institute of Computing Technology, Chinese Academy of Science",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/noauth/3QU-z1zndb97Zg92fa9he.png",
+        "nature": "university",
+        "website": "https://nlp.ict.ac.cn",
+        "github": null,
+        "followers": "31",
+        "models": "15"
+    },
+    "Team-ACE": {
+        "type": "org",
+        "full_name": "Team-ACE",
+        "photo": "https://www.gravatar.com/avatar/469131967f951b42480faf6d829f8893?d=retro&size=100",
+        "nature": null,
+        "website": null,
+        "github": null,
+        "followers": "20",
+        "models": "1"
+    },
+    "ai4bharat": {
+        "type": "org",
+        "full_name": "AI4Bharat",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/1645373988267-5fbfc7a6e366524fe8e97ccf.png",
+        "nature": "non-profit",
+        "website": "https://ai4bharat.iitm.ac.in",
+        "github": "https://github.com/AI4Bharat",
+        "followers": "276",
+        "models": "3"
+    },
+    "vutuka": {
+        "type": "org",
+        "full_name": "vutuka",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/6168218a4ed0b975c18f82a8/8Nt9EE08zAXIJxnp5xnuK.png",
+        "nature": "community",
+        "website": "https://vutuka.com",
+        "github": "https://github.com/vutuka-ai",
+        "followers": "4",
+        "models": "2"
+    },
+    "koyeb": {
+        "type": "org",
+        "full_name": "Koyeb",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/64be80576999b520ed83cea2/6Tz9Tb-tAIJyLjZILM4HX.png",
+        "nature": "company",
+        "website": "https://koyeb.com",
+        "github": "https://github.com/koyeb",
+        "followers": "6",
+        "models": "2"
+    },
+    "tlsdm65376": {
+        "type": "org",
+        "full_name": "KFI",
+        "photo": "https://www.gravatar.com/avatar/ead6f02ebfb1705484ab26ea9dbfe394?d=retro&size=100",
+        "nature": null,
+        "website": null,
+        "github": null,
+        "followers": "1",
+        "models": "36"
+    },
+    "2txt": {
+        "type": "org",
+        "full_name": "2txt NLG",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/65e7147edf7879efae832877/YnM_uV2E6_jLynW_dAdOw.png",
+        "nature": "company",
+        "website": "https://2txt.de",
+        "github": null,
+        "followers": "7",
+        "models": "1"
+    },
+    "LlamaFactoryAI": {
+        "type": "org",
+        "full_name": "Llama Factory",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/6716d00dfdedf1ea1ffc7044/kU2ym97XikEEklLJxbDqD.png",
+        "nature": "community",
+        "website": "https://llamafactory.ai/",
+        "github": null,
+        "followers": "2",
+        "models": "2"
+    },
+    "relaxml": {
+        "type": "org",
+        "full_name": "RelaxML",
+        "photo": "https://www.gravatar.com/avatar/dc7c3d713678a202f93214d5161de3c8?d=retro&size=100",
+        "nature": "university",
+        "website": "https://relax-ml.cs.cornell.edu/team/",
+        "github": "https://github.com/Cornell-RelaxML",
+        "followers": "32",
+        "models": "95"
+    },
+    "kromcomp": {
+        "type": "org",
+        "full_name": "kromcomponents",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/667eea5cdebd46a5ec4dcc3d/idGIkh6WJTVqf6qXwRnc6.png",
+        "nature": "community",
+        "website": null,
+        "github": null,
+        "followers": "1",
+        "models": "34"
+    },
+    "LegalSign": {
+        "type": "org",
+        "full_name": "LegalSign.ai",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/65a5f6cff942653690a89882/ZFJxaRuMSNnfr3JhywrQY.png",
+        "nature": "company",
+        "website": "https://www.legalsign.ai",
+        "github": null,
+        "followers": "2",
+        "models": "2"
+    },
+    "deutsche-telekom": {
+        "type": "org",
+        "full_name": "Deutsche Telekom AG",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/1624526727128-5f188f8a925b9863e28ad578.png",
+        "nature": "company",
+        "website": "https://www.telekom.de/",
+        "github": "https://github.com/telekom",
+        "followers": "112",
+        "models": "7"
+    },
+    "zaroaChin": {
+        "type": "org",
+        "full_name": "zaroaChin",
+        "photo": "https://www.gravatar.com/avatar/9e6ed78f633551d215d76234fc0ab158?d=retro&size=100",
+        "nature": "community",
+        "website": null,
+        "github": null,
+        "followers": "1",
+        "models": "1"
+    },
+    "netomi-ai": {
+        "type": "org",
+        "full_name": "Netomi",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/643f405d0d1194da249d9a26/tpfueuSgO-7GpifLUou-v.png",
+        "nature": "company",
+        "website": null,
+        "github": null,
+        "followers": "19",
+        "models": "6"
+    },
+    "eliceai": {
+        "type": "org",
+        "full_name": "Elice Inc.",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/noauth/XpkCiXAV5QsnjQjN-J2GE.png",
+        "nature": "company",
+        "website": "https://elice.io",
+        "github": null,
+        "followers": "6",
+        "models": "1"
+    },
+    "Advantech-EIOT": {
+        "type": "org",
+        "full_name": "Advantech",
+        "photo": "https://www.gravatar.com/avatar/fa630cb940495d2bc8ddef79754d3385?d=retro&size=100",
+        "nature": "company",
+        "website": null,
+        "github": null,
+        "followers": "4",
+        "models": "2"
+    },
+    "bizlaz": {
+        "type": "org",
+        "full_name": "biz-lazy",
+        "photo": "https://www.gravatar.com/avatar/1e9b48e5cb3086b5e5087b9f2ed91809?d=retro&size=100",
+        "nature": "non-profit",
+        "website": null,
+        "github": null,
+        "followers": "1",
+        "models": "1"
+    },
+    "Tongyi-ConvAI": {
+        "type": "org",
+        "full_name": "Tongyi-ConvAI",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/62e0ef42edb0462c8d51818d/91ahQKHroVhwBI84saTVq.jpeg",
+        "nature": "company",
+        "website": "https://github.com/AlibabaResearch/DAMO-ConvAI",
+        "github": "https://github.com/AlibabaResearch/DAMO-ConvAI",
+        "followers": "5",
+        "models": "2"
+    },
+    "Te-Ti": {
+        "type": "org",
+        "full_name": "TechTitan",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/63fbb82f1b4b1bd4e703ca0a/laeB3qX9ZwD-5wA1u_kyv.jpeg",
+        "nature": "company",
+        "website": "https://sites.google.com/view/technoprenuers/home",
+        "github": null,
+        "followers": "1",
+        "models": "1"
+    },
+    "LLM-Beetle": {
+        "type": "org",
+        "full_name": "Azerbaijani LLM",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/64e760ee31e6254cc4285ea4/1DaXfwhOvhzZ0TWhiVjjh.jpeg",
+        "nature": "community",
+        "website": null,
+        "github": null,
+        "followers": "10",
+        "models": "1"
+    },
+    "ITO2ai": {
+        "type": "org",
+        "full_name": "ITO2ai",
+        "photo": "https://www.gravatar.com/avatar/7bb66bd91a58c4a477f76312730b7b62?d=retro&size=100",
+        "nature": null,
+        "website": null,
+        "github": null,
+        "followers": "0",
+        "models": "4"
+    },
+    "EpistemeAI": {
+        "type": "org",
+        "full_name": "EpistemeAI",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/651def66d0656f67a5f431b4/4i0EImglFNnczoBhZ7jQM.jpeg",
+        "nature": "company",
+        "website": "https://episteai.weebly.com/",
+        "github": "https://github.com/tomtyiu",
+        "followers": "12",
+        "models": "2"
+    },
+    "WebNovelTrans": {
+        "type": "org",
+        "full_name": "Web_Novel_Trans",
+        "photo": "https://www.gravatar.com/avatar/c522433bc35c48a8df602fa290d43033?d=retro&size=100",
+        "nature": "non-profit",
+        "website": null,
+        "github": null,
+        "followers": "4",
+        "models": "4"
+    },
+    "NuclearAi": {
+        "type": "org",
+        "full_name": "Nuclear Ai",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/64204fea5bccaa42484098e6/vWXeRziTUF1mUIT3WPdbn.png",
+        "nature": "community",
+        "website": null,
+        "github": null,
+        "followers": "2",
+        "models": "3"
+    },
+    "iopo-exp": {
+        "type": "org",
+        "full_name": "IOPO Experiments",
+        "photo": "https://www.gravatar.com/avatar/d7afcc45c18b8d5c46519d1ffb5b6216?d=retro&size=100",
+        "nature": "classroom",
+        "website": null,
+        "github": null,
+        "followers": "7",
+        "models": "2"
+    },
+    "Edgen-ai": {
+        "type": "org",
+        "full_name": "Edgen Inc",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/654b0d30141d928a4384e85a/IPcdOpudJ0xTcZYhHWaJN.png",
+        "nature": "company",
+        "website": "https://www.edgen.ai",
+        "github": null,
+        "followers": "3",
+        "models": "5"
+    },
+    "THUMedInfo": {
+        "type": "org",
+        "full_name": "Medical Informatics Lab at Tsinghua University",
+        "photo": "https://www.gravatar.com/avatar/b84029b376cab38b4343cf64ee67ab68?d=retro&size=100",
+        "nature": "non-profit",
+        "website": "https://github.com/THUMedInfo",
+        "github": "https://github.com/THUMedInfo",
+        "followers": "12",
+        "models": "3"
+    },
+    "meaningalignment": {
+        "type": "org",
+        "full_name": "Meaning Alignment Institute",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/661d06e7a897a0b6bf8c3093/ppziinApeHbg2HmNrlrVN.png",
+        "nature": "non-profit",
+        "website": "https://meaningalignment.org",
+        "github": "https://github.com/meaningalignment",
+        "followers": "3",
+        "models": "1"
+    },
+    "2pir": {
+        "type": "org",
+        "full_name": "Pi Labs Inc.",
+        "photo": "https://www.gravatar.com/avatar/d40e37325e588a2971018643c1953296?d=retro&size=100",
+        "nature": "company",
+        "website": "http://withpi.ai/",
+        "github": null,
+        "followers": "4",
+        "models": "12"
+    },
+    "SNSihub": {
+        "type": "org",
+        "full_name": "SNSiHUB",
+        "photo": "https://www.gravatar.com/avatar/2bccd562b1136af9f7d55c32718eca4d?d=retro&size=100",
+        "nature": null,
+        "website": null,
+        "github": null,
+        "followers": "2",
+        "models": "1"
+    },
+    "Sicarius-Prototyping": {
+        "type": "org",
+        "full_name": "Sicarius-Prototyping",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/6569216f9c96f1a47bf45788/-ZWopEorf2mLKHtVU0TmS.png",
+        "nature": "non-profit",
+        "website": null,
+        "github": null,
+        "followers": "4",
+        "models": "20"
+    },
+    "africa-intelligence": {
+        "type": "org",
+        "full_name": "Africa Intelligence",
+        "photo": "https://www.gravatar.com/avatar/6ce352cba9e56b15e7b0dbfca4ae6e1d?d=retro&size=100",
+        "nature": "non-profit",
+        "website": null,
+        "github": null,
+        "followers": "6",
+        "models": "1"
+    },
+    "EscoladoHighTicket": {
+        "type": "org",
+        "full_name": "Escola do High Ticket",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/66e5bec552356419c4effe13/5DLRSiLbCHVh5cuqDlKM2.png",
+        "nature": "company",
+        "website": "https://www.vivendodehighticket.com.br",
+        "github": null,
+        "followers": "1",
+        "models": "1"
+    },
+    "tilde-research": {
+        "type": "org",
+        "full_name": "Tilde Research",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/6643a65ddad1d017db1014ae/FZF2ns1qhOGSuRUr1O9Tp.png",
+        "nature": "company",
+        "website": "https://tilderesearch.com",
+        "github": "https://github.com/tilde-research",
+        "followers": "9",
+        "models": "1"
+    },
+    "BEAT-LLM-Backdoor": {
+        "type": "org",
+        "full_name": "BEAT",
+        "photo": "https://www.gravatar.com/avatar/2e6df6bde7c0033a19db60c9b30dca07?d=retro&size=100",
+        "nature": "community",
+        "website": null,
+        "github": null,
+        "followers": "1",
+        "models": "6"
+    },
+    "watt-ai": {
+        "type": "org",
+        "full_name": "Dadao, Inc",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/630cb7d6b66f088d547757b3/a2Dc0daRKFqBxVbfy3brt.png",
+        "nature": "company",
+        "website": "https://www.gm8.ai",
+        "github": "https://github.com/https://github.com/watt-ai-lab",
+        "followers": "2",
+        "models": "2"
+    },
+    "ContaAI": {
+        "type": "org",
+        "full_name": "ContaAI",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/674fff57c36e234f598276da/HzPSLR9tr6gTisVuqickQ.jpeg",
+        "nature": "company",
+        "website": "https://conta-ai.com",
+        "github": null,
+        "followers": "7",
+        "models": "6"
+    },
+    "SimpleBerry": {
+        "type": "org",
+        "full_name": "SimpleBerry Research Lab",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/6407d3d3a7bc7c3865addc4b/TrxnZ6aXVoVTdy6Ek6Rf2.jpeg",
+        "nature": "university",
+        "website": "https://simple-berry.com/",
+        "github": "https://github.com/SimpleBerry/LLaMA-O1",
+        "followers": "18",
+        "models": "1"
+    },
+    "Canarie": {
+        "type": "org",
+        "full_name": "Canarie",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/64896fdc8fbb6b7ad459ea8f/SAIH6zFA4L9SQbl8viAQR.png",
+        "nature": "company",
+        "website": "https://canarie.cmkl.ai",
+        "github": null,
+        "followers": "2",
+        "models": "4"
+    },
+    "SERMAS": {
+        "type": "org",
+        "full_name": "SERMAS",
+        "photo": "https://www.gravatar.com/avatar/d130326122e360f99201bc306abee811?d=retro&size=100",
+        "nature": "non-profit",
+        "website": null,
+        "github": null,
+        "followers": "8",
+        "models": "13"
+    },
+    "bionlp": {
+        "type": "org",
+        "full_name": "Biomedical NLP",
+        "photo": "https://www.gravatar.com/avatar/0425d5f889e747c32f47321ccfbb994b?d=retro&size=100",
+        "nature": "non-profit",
+        "website": "https://github.com/bionlplab",
+        "github": "https://github.com/bionlplab",
+        "followers": "10",
+        "models": "5"
+    },
+    "GracyWoods-Games": {
+        "type": "org",
+        "full_name": "GracyWoods Games Limited",
+        "photo": "https://cdn-avatars.huggingface.co/v1/production/uploads/66b971eb02fd8eb58b46b4e5/hBtMO4BT4W456XZ7UeJZ4.png",
+        "nature": "company",
+        "website": "https://www.gracywoodsgames.com",
+        "github": null,
+        "followers": "4",
+        "models": "5"
     }
 }

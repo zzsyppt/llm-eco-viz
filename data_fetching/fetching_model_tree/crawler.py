@@ -11,7 +11,7 @@ import time
 import random
 
 # 输入 BASE MODEL 文件路径
-BASE_MODEL_FILE = "../find_basemodel/output/basemodels_top1000_likes.txt"
+BASE_MODEL_FILE = "../find_basemodel/output/basemodels_top1000_likes_modified.txt"
 
 # 输出文件路径
 OUTPUT_FOLDER = "output"
@@ -88,9 +88,15 @@ if __name__ == "__main__":
     with open(BASE_MODEL_FILE, "r", encoding="utf-8") as base_file:
         for line in base_file:
             base_model = line.strip()
-            if not base_model or base_model in derived_models:
-                continue  # 跳过空行或已爬取的模型
+            if not base_model:
+                continue  # 跳过空行
 
+            # 如果 base_model 已经存在于文件中，直接跳过
+            if base_model in derived_models:
+                print(f"Skipping '{base_model}' as it is already in the file.")
+                continue
+
+            # 如果 base_model 不在文件中，初始化其结构
             print(f"\nProcessing BASE MODEL: {base_model}")
             derived_models[base_model] = {"merge": [], "adapter": [], "finetune": [], "quantized": []}
 
