@@ -49,6 +49,7 @@ def build_graph(base_models, model_metadata_file, space_metadata_file, model_tre
         language = metadata.get("language", [])
         spaces = metadata.get("spaces", [])
         author = metadata.get("author", "unknown")
+        task_type = metadata.get("pipeline_tag", "unknown")
         for author_name, author_data in author_metadata.items():
             if author_name == author:
                 pic = author_data.get("photo", "unknown")
@@ -63,11 +64,13 @@ def build_graph(base_models, model_metadata_file, space_metadata_file, model_tre
             likes=likes,
             author=author,
             author_full_name=author_full_name,
+            created_at=created_at,
             days_since_created=days_since_created,
             language=language,
             spaces=spaces,
             pic=pic,
             author_type=author_type,
+            task_type=task_type,
             influence=0.0  # 初始影响力设为 0
         )
 
@@ -75,8 +78,6 @@ def build_graph(base_models, model_metadata_file, space_metadata_file, model_tre
     for base_model, derived_info in model_tree_raw.items():
         for derivation_type, derived_models in derived_info.items():
             for derived_model in derived_models:
-                if base_model =="meta-llama/Llama-3.1-8B-Instruct":
-                        print(f"在前边{base_model} to {derived_model}")
                 if derived_model in model_metadata:  # 确保衍生模型存在于元数据中
                     
                     G.add_edge(
@@ -85,9 +86,6 @@ def build_graph(base_models, model_metadata_file, space_metadata_file, model_tre
                         type=derivation_type,
                         influence_weight=1.0  # 初始影响力权重设为 1
                     )
-                    if base_model =="meta-llama/Llama-3.1-8B-Instruct":
-                        print(f"Adding edge from {base_model} to {derived_model}")
-
     return G
 
 # 示例文件路径
@@ -104,14 +102,6 @@ with open(base_models_file, 'r', encoding='utf-8') as f:
 # 构建图
 graph = build_graph(base_models, model_metadata_file, space_metadata_file, model_tree_raw_file, author_metadata_file)
 
-# 打印图的信息
-print(f"Graph has {len(graph.nodes)} nodes and {len(graph.edges)} edges.")
-# 打印几个节点和边，并且打印节点的属性
-print("Nodes:", list(graph.nodes)[:3])
-#打印节点的属性
-print("Node attributes:", graph.nodes[list(graph.nodes)[1]])
-
-print("Edges:", list(graph.edges)[:3])
 
 import os
 
