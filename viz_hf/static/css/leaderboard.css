@@ -1,0 +1,313 @@
+/* leaderboard.css */
+
+/* 基本样式 */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 100px; /* 确保内容不被footer遮挡 */
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+/* 筛选和重置排序表单样式 */
+.filter-form {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-form label {
+    font-weight: 500;
+}
+
+.filter-form select {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.filter-form select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #007bff;
+}
+
+/* 重置排序按钮样式 */
+.reset-sort a {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #6c757d;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.reset-sort a:hover {
+    background-color: #5a6268;
+}
+
+/* 分页控件和跳转表单容器 */
+.pagination-container {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* 分页控件样式 */
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+.pagination .disabled {
+    color: #555;
+    pointer-events: none;
+    border-color: #555;
+}
+
+/* 跳转到指定页数样式 */
+.jump-to-page {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.jump-to-page input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    transition: box-shadow 0.3s ease;
+}
+
+.jump-to-page input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #28a745;
+}
+
+.jump-to-page button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.jump-to-page button:hover {
+    background-color: #1e7e34;
+}
+
+/* 分页信息样式 */
+.pagination-info {
+    text-align: center;
+    color: #aaaaaa;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Footer 样式 */
+.footer {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #1e1e1e;
+    text-align: center;
+    color: #aaaaaa;
+    position: static;
+    margin-top: 40px;
+}
+
+.footer img {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.footer .slogan {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .filter-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pagination-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .jump-to-page {
+        margin-top: 10px;
+    }
+
+    .footer {
+        margin-top: 20px;
+    }
+}
+
+/* 科技感表格设计 */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+th {
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    cursor: pointer;
+    /* 移除 display: flex; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+th i {
+    margin-left: 5px;
+    font-size: 0.8em;
+    /* 移除使用 Flexbox 布局 */
+    /* display: inline-block; */
+    vertical-align: middle; /* 确保图标垂直居中 */
+}
+
+th a {
+    color: #ffffff;
+    text-decoration: none;
+    /* 移除 display: flex; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    white-space: nowrap; /* 防止文本换行 */
+}
+
+th a:hover {
+    color: #007bff;
+}
+
+.active-sort {
+    color: #ffcc00; /* 高亮当前排序列的图标颜色 */
+}
+
+tr:nth-child(even) {
+    background-color: #1e1e1e;
+}
+
+tr:hover {
+    background-color: #555;
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 改进链接按钮 */
+a.fas.fa-network-wired {
+    color: #28a745;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+a.fas.fa-network-wired:hover {
+    color: #1e7e34;
+}
+
+/* 增加表格阴影和圆角 */
+table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+/* 排行榜图标列样式 */
+.node-icon {
+    width: 30px; /* 设置图标宽度 */
+    height: 30px; /* 设置图标高度 */
+    object-fit: contain; /* 保持图标比例不变 */
+    border-radius: 50%; /* 如果图标是方形，显示为圆形 */
+    border: 1px solid #ddd; /* 给图标添加细边框 */
+}

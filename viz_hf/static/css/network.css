@@ -1,0 +1,49 @@
+/* Sidebar 样式 */
+.sidebar {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 450px;
+    height: 700px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.sidebar h4 {
+    font-size: 20px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 菜单样式 */
+.menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.menu label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.menu select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
