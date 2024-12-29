@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graph Visualization</title>
+    <!-- 引入外部 CSS -->
+    <link href="{{ url_for('static', filename='css/network.css') }}" rel="stylesheet">
+    <!-- 引入 PyVis 生成的 CSS 和 JS -->
+    {{ head_html | safe }}
+</head>
+<body>
+    <!-- PyVis 图会渲染在这里 -->
+    {{ body_html | safe }}
+
+    <!-- 侧边栏 -->
+    <div id="details" class="sidebar">
+        <h4>Model Details</h4>
+        <div id="node-details">
+            <p>Welcome to LLM Network!</p>
+            <p>Click a node to see details.</p>
+        </div>
+    </div>
+
+    <!-- 菜单 -->
+    <div class="menu">
+        <label for="view-selector">Select View:</label>
+        <select id="view-selector" onchange="changeView(this.value)">
+            <option value="1">Full Network</option>
+            <option value="2">Group by Author</option>
+            <option value="3">Only Enterprise Models</option>
+            <option value="8">Only Top Models</option>
+            <option value="4">Filter by Adapter</option>
+            <option value="5">Filter by Finetune</option>
+            <option value="6">Filter by Merge</option>
+            <option value="7">Filter by Quantized</option>
+        </select>
+    </div>
+
+    <!-- 引入外部 JavaScript -->
+    <script src="{{ url_for('static', filename='js/network.js') }}"></script>
+</body>
+</html>

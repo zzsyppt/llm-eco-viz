@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <!-- 引入Google Fonts和Font Awesome图标 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/leaderboard.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Models Leaderboard</h1>
+
+    <!-- 筛选和重置排序表单 -->
+    <form method="get" class="filter-form" id="filterForm">
+        <div class="filter-group">
+            <label for="filter_task_type">Filter by Task Type:</label>
+            <select name="filter_task_type" id="filter_task_type">
+                <option value="all" {% if selected_task_type == 'all' %}selected{% endif %}>All</option>
+                {% for task in task_types %}
+                    <option value="{{ task }}" {% if selected_task_type == task %}selected{% endif %}>{{ task }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group reset-sort">
+            <a href="{{ url_for('leaderboard.leaderboard', 
+                                 page=1, 
+                                 per_page=per_page, 
+                                 filter_task_type=selected_task_type) }}">Reset Sort</a>
+        </div>
+        
+        <!-- 隐藏字段保留其他参数 -->
+        <input type="hidden" name="sort_by" value="{{ selected_sort }}">
+        <input type="hidden" name="sort_order" value="{{ sort_order }}">
+        <input type="hidden" name="per_page" value="{{ per_page }}">
+    </form>
+    
+    <!-- 分页信息 -->
+    <p class="pagination-info">
+        Showing {{ (page-1)*per_page + 1 }} to {{ (page-1)*per_page + nodes|length }} of {{ total_nodes }} models.
+    </p>
+
+    <!-- 排行榜表格 -->
+    <table>
+        <thead>
+            <tr>
+                <th>#</th> <!-- 排名列 -->
+                <th>huggingface</th> <!-- 图标列 -->
+                {% macro sort_icon(column) %}
+                    {% if selected_sort == column %}
+                        {% if sort_order == 'desc' %}
+                            <i class="fas fa-sort-down active-sort"></i>
+                        {% elif sort_order == 'asc' %}
+                            <i class="fas fa-sort-up active-sort"></i>
+                        {% else %}
+                            <i class="fas fa-sort"></i>
+                        {% endif %}
+                    {% else %}
+                        <i class="fas fa-sort"></i>
+                    {% endif %}
+                {% endmacro %}
+                <th>
+                    <a href="{{ url_for('leaderboard.leaderboard', 
+                                         page=1, 
+                                         per_page=per_page, 
+                                         filter_task_type=selected_task_type, 
+                                         sort_by='name', 
+                                         sort_order='desc' if selected_sort != 'name' else ('asc' if sort_order == 'desc' else 'none')) }}">
+                        Name {{ sort_icon('name') }}
+                    </a>
+                </th>
+                <th>
+                    <a href="{{ url_for('leaderboard.leaderboard', 
+                                         page=1, 
+                                         per_page=per_page, 
+                                         filter_task_type=selected_task_type, 
+                                         sort_by='created_at', 
+                                         sort_order='desc' if selected_sort != 'created_at' else ('asc' if sort_order == 'desc' else 'none')) }}">
+                        Created At {{ sort_icon('created_at') }}
+                    </a>
+                </th>
+                <th>
+                    <a href="{{ url_for('leaderboard.leaderboard', 
+                                         page=1, 
+                                         per_page=per_page, 
+                                         filter_task_type=selected_task_type, 
+                                         sort_by='downloads', 
+                                         sort_order='desc' if selected_sort != 'downloads' else ('asc' if sort_order == 'desc' else 'none')) }}">
+                        Downloads {{ sort_icon('downloads') }}
+                    </a>
+                </th>
+                <th>
+                    <a href="{{ url_for('leaderboard.leaderboard', 
+                                         page=1, 
+                                         per_page=per_page, 
+                                         filter_task_type=selected_task_type, 
+                                         sort_by='likes', 
+                                         sort_order='desc' if selected_sort != 'likes' else ('asc' if sort_order == 'desc' else 'none')) }}">
+                        Likes {{ sort_icon('likes') }}
+                    </a>
+                </th>
+                <th>
+                    <a href="{{ url_for('leaderboard.leaderboard', 
+                                         page=1, 
+                                         per_page=per_page, 
+                                         filter_task_type=selected_task_type, 
+                                         sort_by='task_type', 
+                                         sort_order='desc' if selected_sort != 'task_type' else ('asc' if sort_order == 'desc' else 'none')) }}">
+                        Task Type {{ sort_icon('task_type') }}
+                    </a>
+                </th>
+                <th>
+                    <a href="{{ url_for('leaderboard.leaderboard', 
+                                         page=1, 
+                                         per_page=per_page, 
+                                         filter_task_type=selected_task_type, 
+                                         sort_by='influence', 
+                                         sort_order='desc' if selected_sort != 'influence' else ('asc' if sort_order == 'desc' else 'none')) }}">
+                        Influence {{ sort_icon('influence') }}
+                    </a>
+                </th>
+                <th>Network</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for node in nodes %}
+                <tr>
+                    <td>{{ loop.index + (page-1)*per_page }}</td> <!-- 显示排名 -->
+                    <td><a href="https://huggingface.co/{{node.name}}" target="_blank" rel="noopener noreferrer"><img src="{{ node.pic }}" alt="icon" class="node-icon"  style = "background: linear-gradient(135deg, #a8edea, #fed6e3);"></a></td> <!-- 图标列 -->
+                    <td>{{ node.name }}</td>
+                    <td>{{ node.created_at }}</td>
+                    <td>{{ node.downloads }}</td>
+                    <td>{{ node.likes }}</td>
+                    <td>{{ node.task_type }}</td>
+                    <td>{{ node.influence }}</td>
+                    <td>
+                        <a href="{{ url_for('network.network_view', base_model=node.id, view_type=8) }}" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-network-wired"></i> View
+                        </a>
+                    </td> 
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- 分页控制和跳转表单容器 -->
+    <div class="pagination-container">
+        <!-- 分页控件 -->
+        <div class="pagination">
+            <!-- 上一页 -->
+            {% if has_prev %}
+                <a href="{{ url_for('leaderboard.leaderboard', 
+                                     page=page-1, 
+                                     per_page=per_page, 
+                                     filter_task_type=selected_task_type, 
+                                     sort_by=selected_sort, 
+                                     sort_order=sort_order) }}">« Previous</a>
+            {% else %}
+                <span class="disabled">« Previous</span>
+            {% endif %}
+
+            <!-- 显示分页列表 -->
+            {% for p in pages %}
+                {% if p == '...' %}
+                    <span>...</span>
+                {% elif p == page %}
+                    <span class="active">{{ p }}</span>
+                {% else %}
+                    <a href="{{ url_for('leaderboard.leaderboard', 
+                                         page=p, 
+                                         per_page=per_page, 
+                                         filter_task_type=selected_task_type, 
+                                         sort_by=selected_sort, 
+                                         sort_order=sort_order) }}">{{ p }}</a>
+                {% endif %}
+            {% endfor %}
+
+            <!-- 下一页 -->
+            {% if has_next %}
+                <a href="{{ url_for('leaderboard.leaderboard', 
+                                     page=page+1, 
+                                     per_page=per_page, 
+                                     filter_task_type=selected_task_type, 
+                                     sort_by=selected_sort, 
+                                     sort_order=sort_order) }}">Next »</a>
+            {% else %}
+                <span class="disabled">Next »</span>
+            {% endif %}
+        </div>
+
+        <!-- 跳转到指定页数 -->
+        <div class="jump-to-page">
+            <form method="get" action="{{ url_for('leaderboard.leaderboard') }}" onsubmit="return validateJumpPage()">
+                <!-- 保留筛选、排序和每页显示数参数 -->
+                <input type="hidden" name="filter_task_type" value="{{ selected_task_type }}">
+                <input type="hidden" name="sort_by" value="{{ selected_sort }}">
+                <input type="hidden" name="sort_order" value="{{ sort_order }}">
+                <input type="hidden" name="per_page" value="{{ per_page }}">
+                <label for="jump_page">Jump to page:</label>
+                <input type="number" id="jump_page" name="page" min="1" max="{{ total_pages }}" required>
+                <button type="submit">Go</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        <span class="slogan">由不醒人室团队制作</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/leaderboard.js') }}"></script>
+</body>
+</html>
