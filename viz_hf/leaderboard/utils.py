@@ -56,7 +56,6 @@ def process_nodes(graph, filter_task_type, sort_by, sort_order):
         likes = attrs.get('likes', 0) or 0
         influence = attrs.get('influence', 0.0) or 0.0
         pic = attrs.get('pic', '')
-
         nodes_data.append({
             'original_index': index,
             'id': node_id,
@@ -65,7 +64,7 @@ def process_nodes(graph, filter_task_type, sort_by, sort_order):
             'downloads': downloads,
             'likes': likes,
             'task_type': task_type,
-            'influence': influence,
+            'influence': influence, 
             'pic': pic
         })
 

@@ -15,7 +15,10 @@ def leaderboard():
     filter_task_type = request.args.get('filter_task_type', 'all')
     sort_by = request.args.get('sort_by', 'influence')
     sort_order = request.args.get('sort_order', 'desc')
-
+    # 提取所有任务类型（从未过滤的数据中）
+    all_task_types = sorted(list(set(
+        str(node['task_type']) for node in graph.nodes.values() if node['task_type'] not in [None, 'nan']
+    )))
     # 获取分页参数
     page = max(1, int(request.args.get('page', 1)))
     per_page = max(30, int(request.args.get('per_page', 30)))
@@ -50,7 +53,7 @@ def leaderboard():
     return render_template(
         'leaderboard.html',
         nodes=paginated_nodes,
-        task_types=sorted(list(set(node['task_type'] for node in nodes_data))),
+        task_types=all_task_types,
         selected_task_type=filter_task_type,
         selected_sort=sort_by,
         sort_order=sort_order,

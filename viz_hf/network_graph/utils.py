@@ -8,7 +8,7 @@ import math
 import os
 import re 
 
-TOPK_K = 100  # 用于控制only top models的top数量（100）
+TOPK_K = 100  # 用于控制only top models的top数量（100） 
 
 def load_graph(pickle_path):
     """
@@ -281,20 +281,124 @@ def generate_graph_html(eg_graph, base_model , view_type=1):
     # 将 head_content 和 body_content 传递给模板
     return head_html, body_html
 
+# 生成大型TOP K base_model网络的函数，默认view_type = 8
+def generate_large_graph_html(eg_graph, top_k):
+    # 初始化 PyVis 图
+    net = Network(height="1000px", width="100%", notebook=False, directed=True, cdn_resources='remote')
+
+    # 边的颜色对应衍生类型
+    edge_colors = {
+        "adapter": "blue",
+        "finetune": "green",
+        "merge": "red",
+        "quantized": "purple",
+    }
+
+    # 获取所有节点，并按影响力排序
+    all_nodes_sorted = sorted(eg_graph.nodes.items(), key=lambda x: x[1].get('influence', 0), reverse=True)
+
+    top_nodes = [node for node, attrs in all_nodes_sorted[:top_k]]
+     # 深度优先遍历，构建网络
+    visited = set()
+    stack = top_nodes.copy()
+
+    while stack:
+        node = stack.pop()
+        if node in visited:
+            continue
+        visited.add(node)
+
+        node_attrs = eg_graph.nodes[node]
+
+        # 添加节点到 PyVis 图
+        if node not in net.get_nodes():
+            add_node_to_net(net, node, node_attrs, eg_graph)
+
+        # 获取以 base_model 为根节点的子图，并按 influence 排序
+        all_successors = list(eg_graph.successors(node))
+        successor_attrs = [(node0, eg_graph.nodes[node0]) for node0 in all_successors]
+
+        # 排序子节点，按 influence 从大到小排序
+        sorted_successors = sorted(successor_attrs, key=lambda x: x[1].get('influence', 0), reverse=True)
+        # 只取前 TOPK_K 个节点
+        top_successors = sorted_successors[:TOPK_K]
+        # 前五十结点加入图中
+        for successor, attrs in top_successors:
+            add_node_to_net(net, successor, attrs, eg_graph)
+            # 添加边到图中
+            edge_data = eg_graph[node][successor]
+            edge_type = edge_data.get("type", "unknown")
+            edge_color = edge_colors.get(edge_type, "black")
+            net.add_edge(node, successor, color=edge_color, title=edge_type)
+            if successor not in visited and successor not in stack:
+                stack.append(successor)
+        continue
+
+    # 生成 HTML 字符串
+    net.show_buttons(filter_=["physics"])
+    graph_html = net.generate_html()
+    head_html = net.generate_html().split('<head>')[1].split('</head>')[0]
+    body_html = net.generate_html().split('<body>')[1].split('</body>')[0]
+
+    return head_html, body_html
 
 
+# 生成大型指定的多个base_model网络的函数，默认view_type = 8。
+def generate_specific_large_graph_html(eg_graph, base_models_to_show):
+    # 初始化 PyVis 图
+    net = Network(height="1000px", width="100%", notebook=False, directed=True, cdn_resources='remote')
 
+    # 边的颜色对应衍生类型
+    edge_colors = {
+        "adapter": "blue",
+        "finetune": "green",
+        "merge": "red",
+        "quantized": "purple",
+    }
 
+     # 深度优先遍历，构建网络
+    visited = set()
+    stack = base_models_to_show.copy()
 
+    while stack:
+        node = stack.pop()
+        if node in visited:
+            continue
+        visited.add(node)
 
+        node_attrs = eg_graph.nodes[node]
 
+        # 添加节点到 PyVis 图
+        if node not in net.get_nodes():
+            add_node_to_net(net, node, node_attrs, eg_graph)
 
+        # 获取以 base_model 为根节点的子图，并按 influence 排序
+        all_successors = list(eg_graph.successors(node))
+        successor_attrs = [(node0, eg_graph.nodes[node0]) for node0 in all_successors]
 
+        # 排序子节点，按 influence 从大到小排序
+        sorted_successors = sorted(successor_attrs, key=lambda x: x[1].get('influence', 0), reverse=True)
+        # 只取前 TOPK_K 个节点
+        top_successors = sorted_successors[:TOPK_K]
+        # 前五十结点加入图中
+        for successor, attrs in top_successors:
+            add_node_to_net(net, successor, attrs, eg_graph)
+            # 添加边到图中
+            edge_data = eg_graph[node][successor]
+            edge_type = edge_data.get("type", "unknown")
+            edge_color = edge_colors.get(edge_type, "black")
+            net.add_edge(node, successor, color=edge_color, title=edge_type)
+            if successor not in visited and successor not in stack:
+                stack.append(successor)
+        continue
 
+    # 生成 HTML 字符串
+    net.show_buttons(filter_=["physics"])
+    graph_html = net.generate_html()
+    head_html = net.generate_html().split('<head>')[1].split('</head>')[0]
+    body_html = net.generate_html().split('<body>')[1].split('</body>')[0]
 
-
-
-
+    return head_html, body_html
 
 
 
