@@ -1,5 +1,5 @@
 /* leaderboard.css */
-
+ 
 /* 基本样式 */
 body {
     font-family: 'Roboto', sans-serif;
@@ -310,4 +310,175 @@ table {
     object-fit: contain; /* 保持图标比例不变 */
     border-radius: 50%; /* 如果图标是方形，显示为圆形 */
     border: 1px solid #ddd; /* 给图标添加细边框 */
+}
+
+
+/* 新增选择框样式 */
+th input[type="checkbox"],
+td input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #007bff; /* 选择框颜色 */
+}
+
+
+/* 按钮容器整体样式 */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* 多模型网络展示按钮样式 */
+#multiNetworkButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#multiNetworkButton:hover {
+    background-color: #0056b3;
+}
+
+/* TOPK容器样式 */
+.topk-container {
+    margin-top: 20px;
+}
+
+/* TOPK组容器样式，包裹所有元素并添加绿色边框 */
+.topk-group {
+    display: flex;
+    align-items: center;
+    border: 2px solid #28a745; /* 绿色边框 */
+    border-radius: 4px; /* 圆角 */
+    overflow: hidden; /* 确保子元素的圆角不超出 */
+    max-width: 300px; /* 根据需要调整宽度 */
+}
+
+/* TOP标签样式 */
+.topk-label {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #28a745; /* 连接输入框 */
+    /* 去除顶部和底部边框以避免双线 */
+    border-top: none;
+    border-bottom: none;
+}
+
+/* 输入框样式 */
+.topk-group input {
+    width: 40px;
+    padding: 10px;
+    border: none; /* 移除默认边框 */
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    /* 背景颜色与容器一致 */
+    background-color: #ffffff;
+}
+
+/* 模型展示按钮样式 */
+.topk-group button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    /* 去除顶部和底部边框以避免双线 */
+    border-left: 1px solid #28a745;
+}
+
+.topk-group button:hover {
+    background-color: #1e7e34;
+}
+
+/* 响应式设计：在小屏幕下堆叠输入框和按钮 */
+@media (max-width: 600px) {
+    .topk-group {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 100%;
+    }
+
+    .topk-label,
+    .topk-group input,
+    .topk-group button {
+        border-radius: 0;
+        border: none;
+    }
+
+    .topk-group input {
+        border-top: 1px solid #28a745;
+        border-bottom: 1px solid #28a745;
+        margin: 5px 0;
+    }
+
+    .topk-group button {
+        border-left: none;
+        border-top: 1px solid #28a745;
+    }
+
+    .topk-label {
+        border: none;
+    }
+}
+/* 设置表格列宽 */
+table th:nth-child(1), table td:nth-child(1) { /* 选择框列 */
+    width: 50px;
+    text-align: center;
+}
+
+table th:nth-child(2), table td:nth-child(2) { /* 排名列 */
+    width: 50px;
+    text-align: center;
+}
+
+table th:nth-child(3), table td:nth-child(3) { /* 图标列 */
+    width: 60px;
+    text-align: center;
+}
+
+table th:nth-child(4), table td:nth-child(4) { /* 名称列 */
+    width: 200px;
+}
+
+table th:nth-child(5), table td:nth-child(5) { /* 创建时间列 */
+    width: 100px;
+}
+
+table th:nth-child(6), table td:nth-child(6) { /* 下载次数列 */
+    width: 100px;
+    text-align: center;
+}
+
+table th:nth-child(7), table td:nth-child(7) { /* 点赞数列 */
+    width: 80px;
+    text-align: center;
+}
+
+table th:nth-child(8), table td:nth-child(8) { /* 任务类型列 */
+    width: 150px;
+}
+
+table th:nth-child(9), table td:nth-child(9) { /* 影响力列 */
+    width: 100px;
+    text-align: center;
+}
+
+table th:nth-child(10), table td:nth-child(10) { /* 网络列 */
+    width: 150px;
+    text-align: center;
 }

@@ -13,6 +13,7 @@ def create_app():
     # 注册蓝图
     app.register_blueprint(leaderboard_bp, url_prefix='/leaderboard')  # leaderboard 在 /leaderboard 路径下
     app.register_blueprint(network_bp, url_prefix='/network')  # network 在 /network 路径下
+    #app.register_blueprint(dashboard_bp, url_prefix='/dashboard')  # global_dashboard 在 /dashboard 路径下
     
     # 错误处理
     from flask import render_template

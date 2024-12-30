@@ -35,7 +35,21 @@
         <input type="hidden" name="sort_order" value="{{ sort_order }}">
         <input type="hidden" name="per_page" value="{{ per_page }}">
     </form>
-    
+        
+    <!-- 多模型网络展示和TOP K模型展示按钮 -->
+    <div class="button-container">
+        <button id="multiNetworkButton" class="action-button">多模型网络展示</button>
+        <div class="topk-container">
+            <div class="topk-group">
+                <span class="topk-label">TOP</span>
+                <input type="number" id="topKInput" placeholder="1" min="1" max="1000">
+                <button id="topKButton" class="action-button">模型展示</button>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- 分页信息 -->
     <p class="pagination-info">
         Showing {{ (page-1)*per_page + 1 }} to {{ (page-1)*per_page + nodes|length }} of {{ total_nodes }} models.
@@ -45,8 +59,9 @@
     <table>
         <thead>
             <tr>
+                <th><input type="checkbox" id="selectAllCheckbox"></th> <!-- 新增选择框列 -->
                 <th>#</th> <!-- 排名列 -->
-                <th>huggingface</th> <!-- 图标列 -->
+                <th>Hugging Face</th> <!-- 图标列 -->
                 {% macro sort_icon(column) %}
                     {% if selected_sort == column %}
                         {% if sort_order == 'desc' %}
@@ -126,14 +141,15 @@
         <tbody>
             {% for node in nodes %}
                 <tr>
+                    <td><input type="checkbox" class="rowCheckbox"></td> <!-- 新增选择框 -->
                     <td>{{ loop.index + (page-1)*per_page }}</td> <!-- 显示排名 -->
-                    <td><a href="https://huggingface.co/{{node.name}}" target="_blank" rel="noopener noreferrer"><img src="{{ node.pic }}" alt="icon" class="node-icon"  style = "background: linear-gradient(135deg, #a8edea, #fed6e3);"></a></td> <!-- 图标列 -->
+                    <td><a href="https://huggingface.co/{{node.name}}" target="_blank" rel="noopener noreferrer"><img src="{{ node.pic }}" alt="icon" class="node-icon" style="background: linear-gradient(135deg, #a8edea, #fed6e3);"></a></td> <!-- 图标列 -->
                     <td>{{ node.name }}</td>
                     <td>{{ node.created_at }}</td>
                     <td>{{ node.downloads }}</td>
                     <td>{{ node.likes }}</td>
                     <td>{{ node.task_type }}</td>
-                    <td>{{ node.influence }}</td>
+                    <td>{{ '%.2f' | format(node.influence) }}</td>
                     <td>
                         <a href="{{ url_for('network.network_view', base_model=node.id, view_type=8) }}" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-network-wired"></i> View
@@ -143,6 +159,7 @@
             {% endfor %}
         </tbody>
     </table>
+
 
     <!-- 分页控制和跳转表单容器 -->
     <div class="pagination-container">
