@@ -110,7 +110,7 @@ const Header = () => {
                             排行榜
                         </Link>
                         <Link
-                            href="http://127.0.0.1:5000/leaderboard/"
+                            href="http://127.0.0.1:5000/dashboard/"
                             target="_blank"
                             rel="noopener noreferrer"
                             sx={{
