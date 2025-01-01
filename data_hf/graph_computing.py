@@ -55,6 +55,10 @@ def build_graph(base_models, model_metadata_file, space_metadata_file, model_tre
                 pic = author_data.get("photo", "unknown")
                 author_type = author_data.get("type", "unknown")
                 author_full_name = author_data.get("full_name", author_name)
+                if author_type == 'org':
+                    org_type = author_data.get("nature", "anonymous")
+                else:
+                    org_type = "individual"
 
         
         # 添加节点到图中
@@ -63,6 +67,7 @@ def build_graph(base_models, model_metadata_file, space_metadata_file, model_tre
             downloads=downloads,
             likes=likes,
             author=author,
+            org_type=org_type,
             author_full_name=author_full_name,
             created_at=created_at,
             days_since_created=days_since_created,
