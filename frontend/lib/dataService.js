@@ -15,6 +15,7 @@ export class DataService {
             throw error;
         }
 
+        console.log('Available projects:', data.map(p => p.full_name));
         return data;
     }
 
@@ -44,6 +45,7 @@ export class DataService {
             throw error;
         }
 
+        console.log('Search results for query:', query, data?.map(p => p.full_name));
         return data;
     }
 
@@ -53,14 +55,34 @@ export class DataService {
      */
     static async getProjectMetrics(projectFullName) {
         try {
+            console.log('Fetching metrics for project:', projectFullName);
+            
             // 获取项目 ID
-            const { data: project, error: projectError } = await supabase
+            const { data: projects, error: projectError } = await supabase
                 .from('projects')
-                .select('id')
-                .eq('full_name', projectFullName)
-                .single();
+                .select('*')  // 选择所有字段以便调试
+                .eq('full_name', projectFullName);
 
-            if (projectError) throw projectError;
+            if (projectError) {
+                console.error('Project query error:', projectError);
+                throw projectError;
+            }
+
+            console.log('Project query result:', projects);
+
+            if (!projects || projects.length === 0) {
+                console.warn(`Project not found: ${projectFullName}`);
+                // 获取所有项目列表以便调试
+                const { data: allProjects } = await supabase
+                    .from('projects')
+                    .select('full_name')
+                    .order('full_name');
+                console.log('Available projects:', allProjects?.map(p => p.full_name));
+                return {};
+            }
+
+            const project = projects[0];
+            console.log('Found project:', project);
 
             // 获取所有指标数据
             const { data: metricsData, error: metricsError } = await supabase
@@ -69,7 +91,12 @@ export class DataService {
                 .eq('project_id', project.id)
                 .order('date');
 
-            if (metricsError) throw metricsError;
+            if (metricsError) {
+                console.error('Metrics query error:', metricsError);
+                throw metricsError;
+            }
+
+            console.log('Metrics data count:', metricsData?.length);
 
             // 将数据按指标类型分组
             const formattedData = {};
@@ -88,6 +115,7 @@ export class DataService {
                 formattedData[metricType].sort((a, b) => a.time.localeCompare(b.time));
             });
 
+            console.log('Available metric types:', Object.keys(formattedData));
             return formattedData;
         } catch (error) {
             console.error('Error fetching project metrics:', error);
@@ -103,13 +131,18 @@ export class DataService {
     static async getProjectMetric(projectFullName, metricType) {
         try {
             // 获取项目 ID
-            const { data: project, error: projectError } = await supabase
+            const { data: projects, error: projectError } = await supabase
                 .from('projects')
                 .select('id')
-                .eq('full_name', projectFullName)
-                .single();
+                .eq('full_name', projectFullName);
 
             if (projectError) throw projectError;
+            if (!projects || projects.length === 0) {
+                console.warn(`Project not found: ${projectFullName}`);
+                return [];
+            }
+
+            const project = projects[0];
 
             // 获取指标数据
             const { data: metricsData, error: metricsError } = await supabase
@@ -140,15 +173,17 @@ export class DataService {
     static async getLeaderboard(metricType, limit = 10) {
         try {
             // 获取最新的日期
-            const { data: latestDate } = await supabase
+            const { data: dates, error: dateError } = await supabase
                 .from('metrics')
                 .select('date')
                 .eq('metric_type', metricType)
                 .order('date', { ascending: false })
-                .limit(1)
-                .single();
+                .limit(1);
 
-            if (!latestDate) return [];
+            if (dateError) throw dateError;
+            if (!dates || dates.length === 0) return [];
+
+            const latestDate = dates[0];
 
             // 获取该日期的排行榜数据
             const { data: leaderboardData, error } = await supabase
