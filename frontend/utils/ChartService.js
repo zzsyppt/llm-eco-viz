@@ -91,10 +91,8 @@ export class ChartService {
      * @param {string} project - 项目路径
      * @returns {string} - 项目显示名称
      */
-    static getDisplayName(project) {
-        if (!project) return '';
-        const parts = project.split('/');
-        return parts[parts.length - 1];
+    static getDisplayName(fullName) {
+        return fullName.split('/')[1] || fullName;
     }
 
     /**
@@ -1180,78 +1178,5 @@ export class ChartService {
 
         if (openrankElement) openrankElement.textContent = openrankAvg;
         if (activityElement) activityElement.textContent = activityAvg;
-    }
-
-    /**
-     * 初始化 GitHub 表格
-     * @param {Array<string>} projects - 项目路径数组
-     * @param {Object} data - 所有项目数据
-     */
-    static initGithubTable(projects, data) {
-        const tableContainer = document.getElementById('github-table');
-        if (!tableContainer) return;
-
-        // 计算每个项目的指标
-        const projectMetrics = projects.map(project => {
-            const projectData = data[project];
-            if (!projectData) return null;
-
-            // 获取最新月度数据
-            const getLatestMonthlyValue = (dataType) => {
-                const dataObj = projectData[dataType] || [];
-                if (Array.isArray(dataObj) && dataObj.length > 0) {
-                    return dataObj[dataObj.length - 1].value;
-                }
-                return 0;
-            };
-
-            // 使用与雷达图相同的五个维度指标
-            const metrics = {
-                stars: getLatestMonthlyValue('stars'),
-                technical_fork: getLatestMonthlyValue('technical_fork'),
-                new_contributors: getLatestMonthlyValue('new_contributors'),
-                issues_closed: getLatestMonthlyValue('issues_closed'),
-                change_requests_accepted: getLatestMonthlyValue('change_requests_accepted')
-            };
-
-            return {
-                project: this.getDisplayName(project),
-                stars: metrics.stars.toFixed(2),
-                technical_fork: metrics.technical_fork.toFixed(2),
-                new_contributors: metrics.new_contributors.toFixed(2),
-                issues_closed: metrics.issues_closed.toFixed(2),
-                change_requests_accepted: metrics.change_requests_accepted.toFixed(2)
-            };
-        }).filter(item => item !== null);
-
-        // 创建表格 HTML
-        const tableHTML = `
-            <table style="width:100%; color:#7eb6ef; border-collapse:collapse;">
-                <thead>
-                    <tr style="background:rgba(0,168,255,0.1);">
-                        <th style="padding:10px; text-align:left;">项目名</th>
-                        <th style="padding:10px; text-align:center;">星标数</th>
-                        <th style="padding:10px; text-align:center;">技术分叉</th>
-                        <th style="padding:10px; text-align:center;">新贡献者</th>
-                        <th style="padding:10px; text-align:center;">已解决问题</th>
-                        <th style="padding:10px; text-align:center;">已接受PR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${projectMetrics.map((metric, index) => `
-                        <tr style="background:${index % 2 === 0 ? 'rgba(0,168,255,0.05)' : 'transparent'}">
-                            <td style="padding:10px; text-align:left;">${metric.project}</td>
-                            <td style="padding:10px; text-align:center;">${metric.stars}</td>
-                            <td style="padding:10px; text-align:center;">${metric.technical_fork}</td>
-                            <td style="padding:10px; text-align:center;">${metric.new_contributors}</td>
-                            <td style="padding:10px; text-align:center;">${metric.issues_closed}</td>
-                            <td style="padding:10px; text-align:center;">${metric.change_requests_accepted}</td>
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
-        `;
-
-        tableContainer.innerHTML = tableHTML;
     }
 }

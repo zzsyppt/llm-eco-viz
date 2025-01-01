@@ -1,6 +1,5 @@
 // components/Metrics.js
 import React from 'react';
-import RadarChart from './RadarChart';
 
 const Metrics = ({ projectsData }) => {
   if (Object.keys(projectsData).length === 0) {
@@ -40,35 +39,6 @@ const Metrics = ({ projectsData }) => {
   const openrankAvg = openrankCount ? (openrankSum / openrankCount).toFixed(2) : '0.00';
   const activityAvg = activityCount ? (activitySum / activityCount).toFixed(2) : '0.00';
 
-  // 准备雷达图数据
-  const radarData = {
-    seriesData: projects.map(project => {
-      const projectData = projectsData[project];
-      if (!projectData) return null;
-
-      const calculateMedian = (arr) => {
-        if (arr.length === 0) return 0;
-        const sorted = [...arr].sort((a, b) => a - b);
-        const mid = Math.floor(sorted.length / 2);
-        if (sorted.length % 2 === 0) {
-          return (sorted[mid - 1] + sorted[mid]) / 2;
-        }
-        return sorted[mid];
-      };
-
-      const stars = calculateMedian(Object.values(projectData.stars || {}));
-      const technical_fork = calculateMedian(Object.values(projectData.technical_fork || {}));
-      const new_contributors = calculateMedian(Object.values(projectData.new_contributors || {}));
-      const issues_closed = calculateMedian(Object.values(projectData.issues_closed || {}));
-      const change_requests_accepted = calculateMedian(Object.values(projectData.change_requests_accepted || {}));
-
-      return {
-        name: project,
-        value: [stars, technical_fork, new_contributors, issues_closed, change_requests_accepted]
-      };
-    }).filter(item => item !== null)
-  };
-
   return (
     <div className="metrics-container">
       {/* 核心指标 */}
@@ -81,11 +51,6 @@ const Metrics = ({ projectsData }) => {
           <div className="core-data-value" id="github-avg">{activityAvg}</div>
           <div className="core-data-label">GitHub平均值</div>
         </div>
-      </div>
-      {/* 雷达图 */}
-      <div className="radar-container" style={{ height: '400px', width: '100%' }}>
-        <RadarChart data={radarData} />
-        <div className="radar-circle"></div>
       </div>
     </div>
   );
