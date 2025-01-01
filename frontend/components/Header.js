@@ -110,7 +110,7 @@ const Header = () => {
                             排行榜
                         </Link>
                         <Link
-                            href="https://huggingface.co"
+                            href="http://127.0.0.1:5000/leaderboard/"
                             target="_blank"
                             rel="noopener noreferrer"
                             sx={{
@@ -128,7 +128,7 @@ const Header = () => {
                                 }
                             }}
                         >
-                            HuggingFace
+                            HuggingFace 数据大屏
                         </Link>
                     </Box>
 
