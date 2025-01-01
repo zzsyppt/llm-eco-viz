@@ -80,10 +80,21 @@ def language_module(graph):
             'influence': influence,
             'pic': attrs.get('pic', '')
         }
+        language_mapping = {
+            "en": "英语",
+            "th": "泰语",
+            "zh": "中文",
+            "ko": "韩语",
+            "pt": "葡萄牙语",
+            "ar": "阿拉伯语",
+            "es": "西班牙语",
+            # ... to be updated
+        }
         for language in language_lst: 
+            language = language_mapping[language] if language in language_mapping.keys() else language
             if language not in language_dict.keys(): 
                 language_dict[language] = []
-        if language ==  'Unknown':
+        if language ==  'Unknown' or language == 'multilingual':
             continue
         language_dict[language].append(model_info)
     

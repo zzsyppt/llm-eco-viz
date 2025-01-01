@@ -3,6 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='logo/logo.webp') }}"/>
     <title>大模型开源洞察大屏</title>
     <!-- 引入Google Fonts和必要的库 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -39,7 +40,7 @@
                     <!-- 语言热度排行榜面板 -->
                     <div class="card text-white bg-dark mb-3">
                         <div class="card-header">
-                            <h2 class="card-title">语言热度排行榜</h2>
+                            <h2 class="card-title">语言支持热度排行榜</h2>
                         </div>
                         <div class="card-body">
                             <table class="table table-striped table-dark" id="languageHeatTable">
@@ -85,7 +86,7 @@
                     <!-- 公司类型排行榜面板 -->
                     <div class="card text-white bg-dark mb-3">
                         <div class="card-header">
-                            <h2 class="card-title">公司类型排行榜</h2>
+                            <h2 class="card-title">组织类型排行榜</h2>
                         </div>
                         <div class="card-body">
                             <canvas id="orgTypeChart" class="visualization"></canvas>
@@ -111,7 +112,7 @@
                 <div class="col-md-12">
                     <div class="card text-white bg-dark mb-3">
                         <div class="card-header">
-                            <h2 class="card-title">TOP20大模型树图</h2>
+                            <h2 class="card-title">TOP大模型树图</h2>
                         </div>
                         <div class="card-body">
                             <div id="treemap"></div>

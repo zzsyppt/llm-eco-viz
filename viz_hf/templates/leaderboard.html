@@ -2,6 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='logo/logo.webp') }}"/>
     <title>开源大模型影响力排行榜</title>
     <!-- 引入Google Fonts和Font Awesome图标 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,11 +16,12 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <!--<img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo">-->
+                <!--<img src="{{ url_for('static', filename='logo/logo.webp') }}" alt="Logo" style="height:40px;width:40px;">-->
                 <h1>LLM Leaderboard</h1>
             </div>
             <div class="actions"> <!-- 新增社交媒体图标 -->
-                <a href="https://github.com/zzsyppt/llm-eco-viz" class="icon"><img src="{{ url_for('static', filename='logo/github-mark.svg') }}" style="height: 50px;width: 50px;"></img></a>
+                <a href="{{ url_for('dashboard_bp.dashboard') }}" class="icon" target="_blank"><img src="{{ url_for('static', filename='logo/dashboard.svg') }}" style="height: 50px;width: 50px;"></img></a>
+                <a href="https://github.com/zzsyppt/llm-eco-viz" class="icon" target="_blank"><img src="{{ url_for('static', filename='logo/github-mark.svg') }}" style="height: 50px;width: 50px;"></img></a>
             </div>
         </div>
     </header> 
@@ -112,7 +115,7 @@
                                          search=search_query,
                                          sort_by='name', 
                                          sort_order='desc' if selected_sort != 'name' else ('asc' if sort_order == 'desc' else 'none')) }}">
-                        Name {{ sort_icon('name') }}
+                        名称 {{ sort_icon('name') }}
                     </a>
                 </th>
                 <th>
@@ -123,7 +126,7 @@
                                          sort_by='created_at', 
                                          search=search_query,
                                          sort_order='desc' if selected_sort != 'created_at' else ('asc' if sort_order == 'desc' else 'none')) }}">
-                        Created At {{ sort_icon('created_at') }}
+                        创建时间 {{ sort_icon('created_at') }}
                     </a>
                 </th>
                 <th>
@@ -134,7 +137,7 @@
                                          sort_by='downloads', 
                                          search=search_query,
                                          sort_order='desc' if selected_sort != 'downloads' else ('asc' if sort_order == 'desc' else 'none')) }}">
-                        Downloads {{ sort_icon('downloads') }}
+                        下载量 {{ sort_icon('downloads') }}
                     </a>
                 </th>
                 <th>
@@ -145,7 +148,7 @@
                                          sort_by='likes', 
                                          search=search_query,
                                          sort_order='desc' if selected_sort != 'likes' else ('asc' if sort_order == 'desc' else 'none')) }}">
-                        Likes {{ sort_icon('likes') }}
+                        点赞数 {{ sort_icon('likes') }}
                     </a>
                 </th>
                 <th>
@@ -156,7 +159,7 @@
                                          sort_by='task_type', 
                                          search=search_query,
                                          sort_order='desc' if selected_sort != 'task_type' else ('asc' if sort_order == 'desc' else 'none')) }}">
-                        Task Type {{ sort_icon('task_type') }}
+                        任务类型 {{ sort_icon('task_type') }}
                     </a>
                 </th>
                 <th>
@@ -167,10 +170,10 @@
                                          sort_by='influence', 
                                          search=search_query,
                                          sort_order='desc' if selected_sort != 'influence' else ('asc' if sort_order == 'desc' else 'none')) }}">
-                        Influence {{ sort_icon('influence') }}
+                        影响力 {{ sort_icon('influence') }}
                     </a>
                 </th>
-                <th>Network</th>
+                <th>生态网络</th>
             </tr>
         </thead>
         <tbody>
