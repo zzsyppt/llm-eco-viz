@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request
-from .utils import load_graph, get_pagination_pages, process_nodes
+from .utils import load_graph, get_pagination_pages, process_nodes, process_nodes_v2
+from flask import jsonify
 
 leaderboard_bp = Blueprint('leaderboard', __name__)
 
@@ -15,6 +16,13 @@ def leaderboard():
     filter_task_type = request.args.get('filter_task_type', 'all')
     sort_by = request.args.get('sort_by', 'influence')
     sort_order = request.args.get('sort_order', 'desc')
+    search_query = request.args.get('search', '').strip().lower()
+    # 处理搜索查询：显示名称中包含搜索字符串的模型
+    if search_query:
+        nodes_data = process_nodes_v2(graph, filter_task_type, sort_by, sort_order, search_query)
+    else:
+        # 筛选和排序节点
+        nodes_data = process_nodes(graph, filter_task_type, sort_by, sort_order)
     # 提取所有任务类型（从未过滤的数据中）
     all_task_types = sorted(list(set(
         str(node['task_type']) for node in graph.nodes.values() if node['task_type'] not in [None, 'nan']
@@ -23,8 +31,7 @@ def leaderboard():
     page = max(1, int(request.args.get('page', 1)))
     per_page = max(30, int(request.args.get('per_page', 30)))
 
-    # 筛选和排序节点
-    nodes_data = process_nodes(graph, filter_task_type, sort_by, sort_order)
+    
 
     # 获取总项目数和总页数
     total_nodes = len(nodes_data)
@@ -63,5 +70,7 @@ def leaderboard():
         total_nodes=total_nodes,
         has_prev=has_prev,
         has_next=has_next,
-        pages=pages
+        pages=pages,
+        search_query=search_query  # 传递给模板
     )
+ 

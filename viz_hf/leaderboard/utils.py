@@ -42,6 +42,44 @@ def parse_date(date_str):
     except:
         return datetime.min
 
+def process_nodes_v2(graph, filter_task_type, sort_by, sort_order, search_query):
+    nodes_data = []
+    for index, (node_id, attrs) in enumerate(graph.nodes.items()):
+        if search_query and search_query.lower() not in node_id.lower():
+            continue
+        task_type = str(attrs.get('task_type', 'nan'))
+        created_at = attrs.get('created_at', '0001-01-01') or '0001-01-01'
+        downloads = attrs.get('downloads', 0) or 0
+        likes = attrs.get('likes', 0) or 0
+        influence = attrs.get('influence', 0.0) or 0.0
+        pic = attrs.get('pic', '')
+        nodes_data.append({
+            'original_index': index,
+            'id': node_id,
+            'name': attrs.get('name', node_id),
+            'created_at': created_at,
+            'downloads': downloads,
+            'likes': likes,
+            'task_type': task_type,
+            'influence': influence, 
+            'pic': pic
+        })
+    # 筛选
+    if filter_task_type != 'all':
+        nodes_data = [node for node in nodes_data if node['task_type'] == filter_task_type]
+
+    # 排序
+    if sort_by and sort_order in ['desc', 'asc', 'none']:
+        if sort_order == 'none':
+            nodes_data.sort(key=lambda x: x.get('original_index', 0))
+        else:
+            reverse = sort_order == 'desc'
+            if sort_by == 'created_at':
+                nodes_data.sort(key=lambda x: parse_date(x.get(sort_by, '0001-01-01')), reverse=reverse)
+            else:
+                nodes_data.sort(key=lambda x: x.get(sort_by, 0), reverse=reverse)
+
+    return nodes_data
 
 def process_nodes(graph, filter_task_type, sort_by, sort_order):
     """

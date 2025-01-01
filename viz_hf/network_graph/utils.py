@@ -7,6 +7,7 @@ import pickle
 import math
 import os
 import re 
+import json
 
 TOPK_K = 100  # 用于控制only top models的top数量（100） 
 
@@ -23,6 +24,31 @@ def load_graph(pickle_path):
     with open(pickle_path, 'rb') as f:
         graph = pickle.load(f)
     return graph
+
+
+# 设置pyvis物理引擎参数
+def set_physics_options(net):
+    # 供调试使用的button
+    net.show_buttons(filter_=['physics'])
+    # 设置物理引擎参数
+'''
+    physics_options = {
+        "physics": {
+            "forceAtlas2Based": {
+                "springLength": 300,
+                "damping": 0.6,
+                "avoidOverlap": 0.04
+            },
+            "maxVelocity": 20,
+            "minVelocity": 0.75,
+            "solver": "forceAtlas2Based"
+        }
+    }
+    # 将字典转换为 JSON 字符串
+    options_json = json.dumps(physics_options)
+    # 设置选项
+    net.set_options(options_json)
+'''
 
 # 动态生成背景颜色及文字颜色
 def calculate_color(value, max_value, color_start, color_end, text_color_light="#FFFFFF", text_color_dark="#333333"):
@@ -272,8 +298,7 @@ def generate_graph_html(eg_graph, base_model , view_type=1):
                     add_edge_node_and_stack()
     # 生成 HTML 字符串
     #return net.generate_html().replace("</body>", menu_html + sidebar_html + "</body>")#.split('<body>')[1].split('</body>')[0]
-    # 生成 HTML 字符串
-    net.show_buttons(filter_ =["physics"])
+    set_physics_options(net)
     graph_html = net.generate_html()  
     head_html = net.generate_html().split('<head>')[1].split('</head>')[0]
     body_html = net.generate_html().split('<body>')[1].split('</body>')[0]
@@ -333,9 +358,9 @@ def generate_large_graph_html(eg_graph, top_k):
             if successor not in visited and successor not in stack:
                 stack.append(successor)
         continue
-
+    
     # 生成 HTML 字符串
-    net.show_buttons(filter_=["physics"])
+    set_physics_options(net)
     graph_html = net.generate_html()
     head_html = net.generate_html().split('<head>')[1].split('</head>')[0]
     body_html = net.generate_html().split('<body>')[1].split('</body>')[0]
@@ -393,7 +418,7 @@ def generate_specific_large_graph_html(eg_graph, base_models_to_show):
         continue
 
     # 生成 HTML 字符串
-    net.show_buttons(filter_=["physics"])
+    set_physics_options(net)
     graph_html = net.generate_html()
     head_html = net.generate_html().split('<head>')[1].split('</head>')[0]
     body_html = net.generate_html().split('<body>')[1].split('</body>')[0]
@@ -613,7 +638,8 @@ def generate_graph_html_for2(eg_graph, base_model):
         add_node_to_net_for2(net, base_model, [node, node == base_model], author_models, eg_graph)  # 传递 eg_graph 参数
     # 生成 HTML 字符串
     #return 
-    net.show_buttons(filter_ =["physics"])
+    
+    set_physics_options(net)
     graph_html = net.generate_html()  
     head_html = net.generate_html().split('<head>')[1].split('</head>')[0]
     body_html = net.generate_html().split('<body>')[1].split('</body>')[0]

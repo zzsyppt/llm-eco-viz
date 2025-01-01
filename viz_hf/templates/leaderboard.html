@@ -2,19 +2,38 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>排行榜</title>
+    <title>开源大模型影响力排行榜</title>
     <!-- 引入Google Fonts和Font Awesome图标 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/leaderboard.css') }}" rel="stylesheet">
 </head>
 <body>
-    <h1>Models Leaderboard</h1>
+    <section class="upper">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <!--<img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo">-->
+                <h1>LLM Leaderboard</h1>
+            </div>
+            <div class="actions"> <!-- 新增社交媒体图标 -->
+                <a href="https://github.com/zzsyppt/llm-eco-viz" class="icon"><img src="{{ url_for('static', filename='logo/github-mark.svg') }}" style="height: 50px;width: 50px;"></img></a>
+            </div>
+        </div>
+    </header> 
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <h1><span class="highlight">让大语言模型拥抱开源</span></h1>
+        <p>欢迎来到 LLM Leaderboard！<br>我们对Hugging Face上的开源大模型进行了影响力排名，并绘制了它们的生态网络图。</p>
+    </section>
+    </section>
 
     <!-- 筛选和重置排序表单 -->
     <form method="get" class="filter-form" id="filterForm">
         <div class="filter-group">
-            <label for="filter_task_type">Filter by Task Type:</label>
+            <label for="filter_task_type">按类型筛选:</label>
             <select name="filter_task_type" id="filter_task_type">
                 <option value="all" {% if selected_task_type == 'all' %}selected{% endif %}>All</option>
                 {% for task in task_types %}
@@ -22,29 +41,39 @@
                 {% endfor %}
             </select>
         </div>
-        
+         
+        <!-- 新增搜索组 -->
+        <div class="filter-group search-group">
+            <label for="searchInput">搜索模型:</label>
+            <input type="text" id="searchInput" name="search" placeholder="请输入模型名称" autocomplete="off" value="{{ request.args.get('search', '') }}">
+            <button type="submit" class="search-button">搜索</button>
+            <!-- 如果不需要自动补全，可以移除以下行 -->
+            <!-- <div id="autocomplete-list" class="autocomplete-items"></div>   -->
+        </div>
+
         <div class="filter-group reset-sort">
             <a href="{{ url_for('leaderboard.leaderboard', 
                                  page=1, 
                                  per_page=per_page, 
-                                 filter_task_type=selected_task_type) }}">Reset Sort</a>
+                                 filter_task_type=selected_task_type) }}">重置</a>
         </div>
         
         <!-- 隐藏字段保留其他参数 -->
         <input type="hidden" name="sort_by" value="{{ selected_sort }}">
         <input type="hidden" name="sort_order" value="{{ sort_order }}">
         <input type="hidden" name="per_page" value="{{ per_page }}">
+        <input type="hidden" name="search" value="{{ search_query }}">
     </form>
         
     <!-- 多模型网络展示和TOP K模型展示按钮 -->
+    <!-- 多模型网络展示和TOP K模型展示按钮 -->
     <div class="button-container">
-        <button id="multiNetworkButton" class="action-button">多模型网络展示</button>
-        <div class="topk-container">
-            <div class="topk-group">
-                <span class="topk-label">TOP</span>
-                <input type="number" id="topKInput" placeholder="1" min="1" max="1000">
-                <button id="topKButton" class="action-button">模型展示</button>
-            </div>
+        <button id="multiNetworkButton" class="action-button uniform-button">展示选中模型的网络图</button>
+        
+        <div class="topk-group">
+            <span class="topk-label">TOP</span>
+            <input type="number" id="topKInput" value="15" min="1" max="1000">
+            <button id="topKButton" class="action-button uniform-button">网络展示</button>
         </div>
     </div>
 
@@ -80,6 +109,7 @@
                                          page=1, 
                                          per_page=per_page, 
                                          filter_task_type=selected_task_type, 
+                                         search=search_query,
                                          sort_by='name', 
                                          sort_order='desc' if selected_sort != 'name' else ('asc' if sort_order == 'desc' else 'none')) }}">
                         Name {{ sort_icon('name') }}
@@ -91,6 +121,7 @@
                                          per_page=per_page, 
                                          filter_task_type=selected_task_type, 
                                          sort_by='created_at', 
+                                         search=search_query,
                                          sort_order='desc' if selected_sort != 'created_at' else ('asc' if sort_order == 'desc' else 'none')) }}">
                         Created At {{ sort_icon('created_at') }}
                     </a>
@@ -101,6 +132,7 @@
                                          per_page=per_page, 
                                          filter_task_type=selected_task_type, 
                                          sort_by='downloads', 
+                                         search=search_query,
                                          sort_order='desc' if selected_sort != 'downloads' else ('asc' if sort_order == 'desc' else 'none')) }}">
                         Downloads {{ sort_icon('downloads') }}
                     </a>
@@ -111,6 +143,7 @@
                                          per_page=per_page, 
                                          filter_task_type=selected_task_type, 
                                          sort_by='likes', 
+                                         search=search_query,
                                          sort_order='desc' if selected_sort != 'likes' else ('asc' if sort_order == 'desc' else 'none')) }}">
                         Likes {{ sort_icon('likes') }}
                     </a>
@@ -121,6 +154,7 @@
                                          per_page=per_page, 
                                          filter_task_type=selected_task_type, 
                                          sort_by='task_type', 
+                                         search=search_query,
                                          sort_order='desc' if selected_sort != 'task_type' else ('asc' if sort_order == 'desc' else 'none')) }}">
                         Task Type {{ sort_icon('task_type') }}
                     </a>
@@ -131,6 +165,7 @@
                                          per_page=per_page, 
                                          filter_task_type=selected_task_type, 
                                          sort_by='influence', 
+                                         search=search_query,
                                          sort_order='desc' if selected_sort != 'influence' else ('asc' if sort_order == 'desc' else 'none')) }}">
                         Influence {{ sort_icon('influence') }}
                     </a>
@@ -172,6 +207,7 @@
                                      per_page=per_page, 
                                      filter_task_type=selected_task_type, 
                                      sort_by=selected_sort, 
+                                     search=search_query,
                                      sort_order=sort_order) }}">« Previous</a>
             {% else %}
                 <span class="disabled">« Previous</span>
@@ -189,6 +225,7 @@
                                          per_page=per_page, 
                                          filter_task_type=selected_task_type, 
                                          sort_by=selected_sort, 
+                                         search=search_query,
                                          sort_order=sort_order) }}">{{ p }}</a>
                 {% endif %}
             {% endfor %}
@@ -200,6 +237,7 @@
                                      per_page=per_page, 
                                      filter_task_type=selected_task_type, 
                                      sort_by=selected_sort, 
+                                     search=search_query,
                                      sort_order=sort_order) }}">Next »</a>
             {% else %}
                 <span class="disabled">Next »</span>
@@ -214,6 +252,7 @@
                 <input type="hidden" name="sort_by" value="{{ selected_sort }}">
                 <input type="hidden" name="sort_order" value="{{ sort_order }}">
                 <input type="hidden" name="per_page" value="{{ per_page }}">
+                <input type="hidden" name="search" value="{{ search_query }}">
                 <label for="jump_page">Jump to page:</label>
                 <input type="number" id="jump_page" name="page" min="1" max="{{ total_pages }}" required>
                 <button type="submit">Go</button>
@@ -223,7 +262,7 @@
 
     <!-- Footer -->
     <div class="footer">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        <!--<img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo">-->
         <span class="slogan">由不醒人室团队制作</span>
     </div>
 
