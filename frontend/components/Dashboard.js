@@ -32,7 +32,14 @@ const Dashboard = () => {
             for (const projectName of selectedProjects) {
                 try {
                     console.log(`Fetching data for ${projectName}...`);
-                    const response = await fetch(`/api/data/${encodeURIComponent(projectName)}/all`);
+                    // 分别编码组织名和仓库名
+                    const [org, repo] = projectName.split('/');
+                    if (!org || !repo) {
+                        console.error(`Invalid project name format: ${projectName}`);
+                        continue;
+                    }
+                    const encodedPath = `${encodeURIComponent(org)}/${encodeURIComponent(repo)}`;
+                    const response = await fetch(`/api/data/${encodedPath}/all`);
                     console.log(`Response status for ${projectName}:`, response.status);
                     
                     if (response.ok) {
