@@ -56,6 +56,7 @@ LLM-ECO-VIZ
 
 访问[LLM Ecosystem Visualization](https://jettycoffee.cn)来快速体验！
 可参考[产品使用文档](复赛/产品使用文档.md)和[产品技术文档](复赛/产品技术文档.md)
+**注** 由于图片资源需要从Hugging Face官网进行加载，因此若您的网络环境不能访问Hugging Face，有关Hugging Face平台的部分可能会加载缓慢。
 
 ### 📦Dependencies
 
