@@ -40,8 +40,8 @@ LLM-ECO-VIZ
 - [`复赛/`](复赛/)：包含复赛产品文档。
 - [`data_fetching/`](data_fetching/)：存放获取Hugging Face数据及GitHub数据所用的脚本文件。
 - [`data_hf`](data_hf/)：将Hugging Face数据处理成图对象。
-- [`frontend`]：GitHub数据大屏可视化子模块。
-- [`viz_hf`]：Hugging Face排行榜、生态网络图、数据大屏的可视化子模块。
+- [`frontend`](frontend/)：GitHub数据大屏可视化子模块。
+- [`viz_hf`](viz_hf/)：Hugging Face排行榜、生态网络图、数据大屏的可视化子模块。
 - [`img/`](img/): 本项目用到的图片。
 - [`README.md`](README.md): 项目概览与向导。
 
@@ -49,8 +49,8 @@ LLM-ECO-VIZ
 
 本项目的人员分工：
 
-- [@zzsyppt](https://github.com/zzsyppt)：Hugging Face数据获取与处理；大模型生态网络与排行榜制作；Hugging Face大模型数据大屏制作；大模型影响力算法设计等
-- [@JettyCoffee](https://github.com/JettyCoffee)：GitHub数据获取与处理；GitHub大模型数据大屏制作；影响力算法设计；网页应用制作等
+- [@zzsyppt（李佳亮）](https://github.com/zzsyppt)：Hugging Face数据获取与处理；大模型生态网络与排行榜制作；Hugging Face大模型数据大屏制作；大模型影响力算法设计等
+- [@JettyCoffee（陈子谦）](https://github.com/JettyCoffee)：GitHub数据获取与处理；GitHub大模型数据大屏制作；影响力算法设计；网页应用制作等
 
 ### 🚀Getting Started
 
