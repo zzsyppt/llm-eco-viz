@@ -55,7 +55,7 @@ LLM-ECO-VIZ
 本项目的人员分工：
 
 - [@zzsyppt（李佳亮）](https://github.com/zzsyppt)：Hugging Face数据获取与处理；大模型生态网络与排行榜制作；Hugging Face大模型数据大屏制作；大模型影响力算法设计等
-- [@JettyCoffee（陈子谦）](https://github.com/JettyCoffee)：GitHub数据获取与处理；GitHub大模型数据大屏制作；影响力算法设计；网页应用制作等
+- [@JettyCoffee（陈子谦）](https://github.com/JettyCoffee)：GitHub数据获取与处理；GitHub大模型数据大屏制作；影响力算法设计；前端开发、网页应用制作等
 
 ### 🚀Getting Started
 
