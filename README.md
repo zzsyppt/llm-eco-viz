@@ -45,8 +45,8 @@ LLM-ECO-VIZ
 - [`复赛/`](复赛/)：包含复赛产品文档。
 - [`data_fetching/`](data_fetching/)：存放获取Hugging Face数据及GitHub数据所用的脚本文件。
 - [`data_hf`](data_hf/)：将Hugging Face数据处理成图对象。
-- [`frontend`]：GitHub数据大屏可视化子模块。
-- [`viz_hf`]：Hugging Face排行榜、生态网络图、数据大屏的可视化子模块。
+- [`frontend`](front_end/)：GitHub数据大屏可视化子模块。
+- [`viz_hf`](viz_hf/)：Hugging Face排行榜、生态网络图、数据大屏的可视化子模块。
 - [`img/`](img/): 本项目用到的图片。
 - [`README.md`](README.md): 项目概览与向导。
 
